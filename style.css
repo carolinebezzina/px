@@ -163,12 +163,8 @@ form {
 }
 
 @media (max-width: 1024px) {
-	.navContainer {
-    	float: none !important;
-    	margin: auto;
-    }
     header {
-    	background-position: top;
+    	background-position: top left;
     	padding-top: 60px;
     	max-height: none;
     }
@@ -187,8 +183,7 @@ form {
 }
 
 .navContainer {
-    max-width: 70%;
-    float: right;
+    min-width: 70%;
 }
 
 #mainNavbar {
@@ -206,4 +201,10 @@ form {
 
 .navbar-right li {
 	margin-right: 0px;
+}
+.loginForm {
+    margin: auto;
+}
+.loginForm td {
+    padding: 10px;
 }
