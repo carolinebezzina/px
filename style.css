@@ -189,7 +189,7 @@ label {
 .table-row {
     display: table-row;
 }
-.no-display {
+.mobile-hide {
     display: table-cell;
 }
 hr {
@@ -243,7 +243,7 @@ hr {
     .accountLabels{
         display: none;
     }
-    .no-display {
+    .mobile-hide {
         display: hidden;
     }
     header {
