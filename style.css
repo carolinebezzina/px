@@ -40,7 +40,7 @@ header {
 }
 
 .mainContent {
-    padding: 5%;
+    margin: 5%;
 }
 
 @media screen and (max-device-width: 800px) {
@@ -126,10 +126,6 @@ h3 {
     font-size: 16pt;
 }
 
-form {
-    overflow: auto;
-}
-
 .mainContent {
     overflow: auto;
 }
@@ -137,49 +133,6 @@ form {
 .navbar-footer {
     margin-bottom: 0;
     border-radius: 0;
-}
-
-@media (max-width: 767px) {
-    #mainNavbar {
-        border: none;
-    }
-
-    #mainNavbar ul {
-        border: none;
-    }
-
-    #mainNavbar li {
-        width: 100%;
-        text-align: center;
-    }
-
-    #mainNavbar a {
-        border: none;
-    }
-
-    #mainNavbar .active a {
-        background-color: #eee;
-    }
-}
-
-@media (max-width: 1024px) {
-    header {
-    	background-position: top left;
-    	padding-top: 60px;
-    	max-height: none;
-    }
-}
-
-@media (min-width: 768px) {
-    .navbar li {
-    	font-size: 1em;
-	}
-}
-
-@media (min-width: 1200px) {
-	.navbar li {
-   		font-size: 1.2em;
-	}
 }
 
 .navContainer {
@@ -207,4 +160,93 @@ form {
 }
 .loginForm td {
     padding: 10px;
+}
+
+.accounts {
+    list-style: none;
+    padding-left: 0;
+    padding-top: 20px;
+}
+label {
+    color: #666;
+    font-weight: normal;
+    font-size: 16px;
+    display: block;
+}
+.accountLabels {
+    display: table-cell;
+    padding-left: 0;
+    list-style: none;
+    min-width: 160px;
+}
+.accountInput {
+    display: table-cell;
+    padding-left: 0;
+    list-style: none;
+    min-width: 160px;
+    padding: 10px;
+}
+.table-row {
+    display: table-row;
+}
+.no-display {
+    display: table-cell;
+}
+hr {
+    border-top-color: #9d9d9d;
+}
+
+@media (max-width: 1024px) {
+    header {
+        background-position: top left;
+        padding-top: 60px;
+        max-height: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar li {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .navbar li {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 767px) {
+    #mainNavbar {
+        border: none;
+    }
+
+    #mainNavbar ul {
+        border: none;
+    }
+
+    #mainNavbar li {
+        width: 100%;
+        text-align: center;
+    }
+
+    #mainNavbar a {
+        border: none;
+    }
+
+    #mainNavbar .active a {
+        background-color: #eee;
+    }
+    .accountInput{
+        display: block;
+    }
+    .accountLabels{
+        display: none;
+    }
+    .no-display {
+        display: hidden;
+    }
+    header {
+        background-position: center;
+    }
 }
