@@ -141,7 +141,7 @@
                         document.getElementById("cName").disabled = true;
                         document.getElementById("eMail").disabled = true;
                         document.getElementById("phoneNum").disabled = true;
-                        document.getElementById("password").disabled = true;
+                        // document.getElementById("password").disabled = true;
                         document.getElementById("enableEdit").classList.remove("hidden");
                         document.getElementById("cancelEdit").classList.add("hidden");
                     }
