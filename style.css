@@ -167,19 +167,24 @@ h3 {
     padding-left: 0;
     padding-top: 20px;
 }
+.registration {
+    list-style: none;
+    padding-left: 0;
+    padding-top: 20px;
+}
 label {
     color: #666;
     font-weight: normal;
     font-size: 16px;
     display: block;
 }
-.accountLabels {
+.labels {
     display: table-cell;
     padding-left: 0;
     list-style: none;
     min-width: 160px;
 }
-.accountInput {
+.inputs {
     display: table-cell;
     padding-left: 0;
     list-style: none;
@@ -237,10 +242,10 @@ hr {
     #mainNavbar .active a {
         background-color: #eee;
     }
-    .accountInput{
+    .inputs{
         display: block;
     }
-    .accountLabels{
+    .labels{
         display: none;
     }
     .mobile-hide {

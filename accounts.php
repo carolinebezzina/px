@@ -83,30 +83,30 @@
                 </div>
                 <div class="mainContent">
                     <h1> Accounts Page</h1>
-                        <form name="accounts" id="accounts" method="post" action="accountUpdate.php" accept-charset="UTF-8">
+                            <form name="accounts" id="accounts" method="post" action="accountUpdate.php" accept-charset="UTF-8">
                             <input type = "hidden" name ="submitted" id="submitted" value="1"/>
                                 <ul class = "accounts">
                                     <span class = "table-row"></span>
-                                    <li class = "accountLabels">Full Name:</li>
-                                    <li class="accountInput"><input type = "text" name = "fName" id="Fname" value ="<?php echo $fname; ?>" maxlength="40"/><label for="fname">First Name</label></li>
-                                    <li class="accountInput"><input type = "text" name = "lName" id="lName" value ="<?php echo $lname; ?>" maxlength="40"/><label for="lname">Last Name</label></li>
+                                    <li class = "labels">Full Name:</li>
+                                    <li class="inputs"><input type = "text" name = "fName" id="Fname" value ="<?php echo $fname; ?>" maxlength="40"/><label for="fname">First Name</label></li>
+                                    <li class="inputs"><input type = "text" name = "lName" id="lName" value ="<?php echo $lname; ?>" maxlength="40"/><label for="lname">Last Name</label></li>
                                     <span class = "table-row"></span>
-                                    <li class = "accountLabels">Company Name:</li>
-                                    <li class="accountInput"><input type = "text" name = "cName" id="cName" value ="<?php echo $businessName; ?>" maxlength="50"/><label for="cname">Company Name</label></li>
+                                    <li class = "labels">Company Name:</li>
+                                    <li class="inputs"><input type = "text" name = "cName" id="cName" value ="<?php echo $businessName; ?>" maxlength="50"/><label for="cname" class = "hidden">Company Name</label></li>
                                     <span class = "table-row"></span>
-                                    <li class = "accountLabels">Email Address:</li>
-                                    <li class="accountInput"><input type = "email" name = "eMail" id="eMail" value ="<?php echo $email; ?>" maxlength="50"/><label for="email"> Email Address</label></li>
-                                    <li class="accountInput"><label>Note: Email is also your username!</label></li>
+                                    <li class = "labels">Email Address:</li>
+                                    <li class="inputs"><input type = "email" name = "eMail" id="eMail" value ="<?php echo $email; ?>" maxlength="50"/><label for="email" class="hidden">Email Address</label></li>
+                                    <li class="inputs"><label>Note: Email is also your username!</label></li>
                                     <span class = "table-row"></span>
-                                    <li class = "accountLabels">Phone Number:</li>
-                                    <li class="accountInput"><input type = "phone" name = "phone" id="phoneNum" value ="<?php echo $phone; ?>" maxlength="12"/><label for="phone">Phone Number</label></li>
+                                    <li class = "labels">Phone Number:</li>
+                                    <li class="inputs"><input type = "phone" name = "phone" id="phoneNum" value ="<?php echo $phone; ?>" maxlength="12"/><label for="phone" class="hidden">Phone Number</label></li>
                                     <span class = "table-row"></span>
-                                    <li class = "accountLabels">Address:</li>
-                                    <li class="accountInput"><input type = "text" name = "address" id="address" value ="<?php echo $address; ?>" maxlength="50"/><label for="address">Address</label></li>
+                                    <li class = "labels">Address:</li>
+                                    <li class="inputs"><input type = "text" name = "address" id="address" value ="<?php echo $address; ?>" maxlength="50"/><label for="address">Address</label></li>
                                     <span class = "table-row"></span>
                                     <li class="mobile-hide"></li>
-                                    <li class="accountInput"><input type = "text" name = "state" id="state" value ="<?php echo $state; ?>" maxlength="50"/><label for="state">State</label></li>
-                                    <li class="accountInput"><input type = "text" name = "pcode" id="pcode" value ="<?php echo $postcode; ?>" maxlength="50"/><label for="postcode">Postcode</label></li>
+                                    <li class="inputs"><input type = "text" name = "state" id="state" value ="<?php echo $state; ?>" maxlength="50"/><label for="state">State</label></li>
+                                    <li class="inputs"><input type = "text" name = "pcode" id="pcode" value ="<?php echo $postcode; ?>" maxlength="50"/><label for="postcode">Postcode</label></li>
                                     <span class = "table-row"></span>
                                     <li><input class="hidden" type ="submit" id="submit" name ="editSubmit" value ="Submit" size = "6"/></li>
                                 </ul>
