@@ -129,6 +129,9 @@ h2,h3,h4 {
 .mandatory {
     color: red;
 }
+.size12 {
+    font-size: 12pt;
+}
 .contact-list {
     padding-left: 0px;
 }
@@ -138,7 +141,13 @@ h2,h3,h4 {
     padding-bottom: 10px;
     display: table-cell;
 }
-
+.contactForm {
+    list-style: none;
+    padding-left: 0px;
+}
+.contactForm li {
+    padding-top: 10px;
+}
 h3 {
     font-size: 16pt;
 }
