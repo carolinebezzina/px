@@ -29,7 +29,7 @@
                         <li>
                             <a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
-                        <li class = "active">
+                        <li class="active">
                             <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
                         </li>
                     </ul>
