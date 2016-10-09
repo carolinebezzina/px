@@ -22,7 +22,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.html">South Coast Tyre Recycling</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.html">South Coast Tyre Recycling</a><a class="navbar-brand xs-visible menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -60,11 +60,7 @@
                 <header>
                     <div class="navContainer">
                         <nav class="navbar navbar-default">
-                            <div class="navbar-header">
-                                <button class="navbar-toggle" data-target="#mainNavbar" data-toggle="collapse" type="button"><span class="icon-bar"></span>
-                                <span class="icon-bar"></span> <span class="icon-bar"></span></button>
-                            </div>
-                            <div class="collapse navbar-collapse" id="mainNavbar">
+                            <div class="hidden-xs" id="mainNavbar">
                                 <ul class="nav nav-tabs navbar-right">
                                     <li>
                                         <a href="index.html">Home</a>
@@ -110,14 +106,14 @@
                                     <li class="inputs"><input type = "text" name = "lName" id="lName" value ="<?php echo $lname; ?>" maxlength="40"/><label for="lname">Last Name</label></li>
                                     <span class = "table-row"></span>
                                     <li class = "labels">Company Name:</li>
-                                    <li class="inputs"><input type = "text" name = "cName" id="cName" value ="<?php echo $businessName; ?>" maxlength="50"/><label for="cname" class = "hidden">Company Name</label></li>
+                                    <li class="inputs"><input type = "text" name = "cName" id="cName" value ="<?php echo $businessName; ?>" maxlength="50"/><label for="cname" class = "visible-xs">Company Name</label></li>
                                     <span class = "table-row"></span>
                                     <li class = "labels">Email Address:</li>
-                                    <li class="inputs"><input type = "email" name = "eMail" id="eMail" value ="<?php echo $email; ?>" maxlength="50"/><label for="email" class="hidden">Email Address</label></li>
+                                    <li class="inputs"><input type = "email" name = "eMail" id="eMail" value ="<?php echo $email; ?>" maxlength="50"/><label for="email" class="visible-xs">Email Address</label></li>
                                     <li class="inputs"><label>Note: Email is also your username!</label></li>
                                     <span class = "table-row"></span>
                                     <li class = "labels">Phone Number:</li>
-                                    <li class="inputs"><input type = "phone" name = "phone" id="phoneNum" value ="<?php echo $phone; ?>" maxlength="12"/><label for="phone" class="hidden">Phone Number</label></li>
+                                    <li class="inputs"><input type = "phone" name = "phone" id="phoneNum" value ="<?php echo $phone; ?>" maxlength="12"/><label for="phone" class="visible-xs">Phone Number</label></li>
                                     <span class = "table-row"></span>
                                     <li class = "labels">Address:</li>
                                     <li class="inputs"><input type = "text" name = "address" id="address" value ="<?php echo $address; ?>" maxlength="50"/><label for="address">Address</label></li>

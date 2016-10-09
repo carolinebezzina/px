@@ -86,6 +86,10 @@ h2,h3,h4 {
     background-image: none;
 }
 
+.glyphicon-chevron-left, .glyphicon-chevron-right {
+    text-shadow: 2px 2px 5px #144b6f;
+}
+
 .col-sm-10,.col-lg-8 {
     background-color: #fff;
     font-size: 1.4em;
@@ -105,6 +109,15 @@ h2,h3,h4 {
     color: #144b6f;
 }
 
+.login {
+    text-align: center;
+}
+
+.menu {
+    float: right;
+    font-size: 1.2em;
+}
+
 .row {
     background-color: #144b6f;
     background: -webkit-linear-gradient(rgba(20,75,111,1),rgba(58,130,143,0.8));
@@ -116,10 +129,14 @@ h2,h3,h4 {
 .mandatory {
     color: red;
 }
-
+.contact-list {
+    padding-left: 0px;
+}
 .contact-list li {
     list-style: none;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: table-cell;
 }
 
 h3 {
@@ -156,12 +173,17 @@ h3 {
 	margin-right: 0px;
 }
 .loginForm {
-    margin: auto;
+    list-style: none;
+    padding-left: 0px;
 }
-.loginForm td {
+.loginForm li {
+    display: table-cell;
     padding: 10px;
 }
-
+.forgot a {
+    font-size: 16px;
+    vertical-align: center;
+}
 .accounts {
     list-style: none;
     padding-left: 0;
@@ -213,6 +235,17 @@ hr {
     .navbar li {
         font-size: 1em;
     }
+    .loginForm {
+        width: 50%;
+        margin: auto;
+    }
+    .forgot {
+        display: inline-block !important;
+    }
+    .loginButton {
+        display: inline-block !important;
+        float: right;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -253,5 +286,8 @@ hr {
     }
     header {
         background-position: center;
+    }
+    .loginForm li{
+        display: block;
     }
 }
