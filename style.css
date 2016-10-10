@@ -88,6 +88,7 @@ h2,h3,h4 {
 
 .glyphicon-chevron-left, .glyphicon-chevron-right {
     text-shadow: 2px 2px 5px #144b6f;
+    color: #b7dbe1;
 }
 
 .col-sm-10,.col-lg-8 {
@@ -150,6 +151,7 @@ h2,h3,h4 {
 }
 h3 {
     font-size: 16pt;
+    text-transform: uppercase;
 }
 
 .mainContent {
@@ -228,6 +230,10 @@ label {
 .mobile-hide {
     display: table-cell;
 }
+.cLabel {
+    padding-right: 40px;
+    font-weight: bold;
+}
 hr {
     border-top-color: #9d9d9d;
 }
@@ -301,5 +307,12 @@ hr {
     }
     .loginForm li{
         display: block;
+    }
+    .contact-list li{
+        padding-right: 0px;
+        display: block;
+    }
+    textarea {
+        max-width: 100%;
     }
 }
