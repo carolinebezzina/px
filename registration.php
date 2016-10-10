@@ -113,6 +113,8 @@
 							<span class = "table-row"></span>
 							<li class = "labels">Full Name:</li>
 							<li class="inputs"><input type = "text" name = "First_Name-req-alpha" id="First_Name-req-alpha" maxlength="40"/><span class="required"><?php if(isset($reqfirst)){echo htmlentities($reqfirst); }?></span><label>First Name</label></li>
+							<span class = "table-row visible-s"></span>
+							<!-- <li class = "visible-s mobile-hide"></li> -->
 							<li class="inputs"><input type = "text" name = "Last_Name-req-alpha" id="lName" maxlength="40"/><span class="required"><?php if(isset($reqLast)){echo htmlentities($reqLast); }?></span><label>Last Name</label></li>
 							<span class = "table-row"></span>
 							<li class = "labels">Company Name:</li>

@@ -255,6 +255,9 @@ hr {
         display: inline-block !important;
         float: right;
     }
+    .registration .labels {
+        text-align: left;
+    }
 }
 
 @media (min-width: 1200px) {
