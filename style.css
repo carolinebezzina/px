@@ -234,6 +234,9 @@ label {
     padding-right: 40px;
     font-weight: bold;
 }
+.loginButton button {
+    width: 100px;
+}
 hr {
     border-top-color: #9d9d9d;
 }
@@ -251,7 +254,7 @@ hr {
         font-size: 1em;
     }
     .loginForm {
-        width: 50%;
+        width: 45%;
         margin: auto;
     }
     .forgot {
