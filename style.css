@@ -233,11 +233,8 @@ hr {
     .registration .labels {
         text-align: left;
     }
-    .loginButton {
-        float: right;
-    }
     .forgot {
-        float: left;
+        padding-right: 20px;
     }
 }
 /*Media Query for mobiles and tablets*/
