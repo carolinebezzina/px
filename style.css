@@ -168,36 +168,27 @@ h3 {
     padding-left: 0;
     padding-top: 20px;
 }
+.registration li {
+    padding-bottom: 10px;
+}
 label {
     color: #666;
     font-weight: normal;
     font-size: 16px;
-    display: block;
-}
-.labels {
-    display: table-cell;
-    padding-left: 0;
-    list-style: none;
-    min-width: 160px;
-}
-.inputs {
-    display: table-cell;
-    padding-left: 0;
-    list-style: none;
-    min-width: 160px;
-    padding: 10px;
-}
-.table-row {
-    display: table-row;
-}
-.mobile-hide {
-    display: table-cell;
+    /*width: 44%;*/
+    padding-left: 2px;
+    padding-right: 2px;
+    text-align: center;
+    vertical-align: top;
 }
 .cLabel {
     font-weight: bold;
 }
-.cContent, .lInput {
+.cContent, .lInput, .labels, .inputs {
     display:inline-block;
+    vertical-align: top;
+}
+input {
     vertical-align: top;
 }
 .loginButton button {
@@ -205,6 +196,9 @@ label {
 }
 hr {
     border-top-color: #9d9d9d;
+}
+.address {
+    width: 60%;
 }
 /*Media Query for laptops and desktops*/
 @media (min-width: 1024px) {
@@ -235,6 +229,17 @@ hr {
     }
     .cLabel {
         width: 15%;
+    }
+    .left-column, .right-column {
+        display: inline-block;
+        width: 45%;
+        text-align: center;
+    }
+    .labels {
+        width: 25%;
+    }
+    .inputs {
+        width: 74%;
     }
 }
 /*Media Query for mobiles and tablets*/

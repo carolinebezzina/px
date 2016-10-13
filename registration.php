@@ -110,35 +110,43 @@
 						<input type = "hidden" name ="submitted" id="submitted" value="1"/>
 								
 						<ul class = "registration">
-							<span class = "table-row"></span>
-							<li class = "labels">Full Name:</li>
-							<li class="inputs"><input type = "text" name = "First_Name-req-alpha" id="First_Name-req-alpha" maxlength="40"/><span class="required"><?php if(isset($reqfirst)){echo htmlentities($reqfirst); }?></span><label>First Name</label></li>
-							<span class = "table-row visible-s"></span>
-							<!-- <li class = "visible-s mobile-hide"></li> -->
-							<li class="inputs"><input type = "text" name = "Last_Name-req-alpha" id="lName" maxlength="40"/><span class="required"><?php if(isset($reqLast)){echo htmlentities($reqLast); }?></span><label>Last Name</label></li>
-							<span class = "table-row"></span>
-							<li class = "labels">Company Name:</li>
-							<li class="inputs"><input type = "text" name = "Company_Name-req-alphachar" id="cName" maxlength="50"/><span class="required"><?php if(isset($reqCompany)){echo htmlentities($reqCompany); }?></span><label class = "visible-xs">Company Name</label></li>
-							<span class = "table-row"></span>
-							<li class = "labels">Email Address:</li>
-							<li class="inputs"><input type = "email" name = "Email-req-email" id="eMail" maxlength="50"/><span class="required"><?php if(isset($reqEmail)){echo htmlentities($reqEmail); }?></span><label class = "visible-xs">Email Address</label>
-							</li>
-							<li class="inputs"><label>Note: E-Mail is also your username!</label></li>
-							<span class = "table-row"></span>
-							<li class = "labels">Phone Number:</li>
-							<li class="inputs"><input type = "text" name = "Phone-req-num" id="phone" maxlength="12/><span class="required"><?php if(isset($reqPhone)){echo htmlentities($reqPhone); }?></span><label class = "visible-xs">Phone Number</label></li>
-							<span class = "table-row"></span>
-							<li class = "labels">Address:</li>
-							<li class="inputs"><input type = "text" name = "Address-req-alphachar" id="address" value="<?php  ?>" maxlength="80"/><span class="required"><?php if(isset($reqAddress)){echo htmlentities($reqAddress); }?></span><label >Address</label></li>
-							<span class = "table-row"></span>
-							<li class="mobile-hide"></li>
-							<li class="inputs"><input type = "text" name = "State-req-alpha" id="state" maxlength="50"/><span class="required"><?php if(isset($reqState)){echo htmlentities($reqState); }?></span><label>State</label></li>
-							<li class="inputs"><input type = "text" name = "Postcode-req-num" id="pcode" maxlength="50"/><span class="required"><?php if(isset($reqPostcode)){echo htmlentities($reqPostcode); }?></span><label>Postcode</label></li>
-							<span class = "table-row"></span>
-							<li class = "labels">Password:</li>
-							<li class="inputs"><input type = "password" name = "Password-req" id="password" maxlength="18"/><span class="required"><?php if(isset($reqPassword)){echo htmlentities($reqPassword); }?></span><label>Password</label></li>
-							<li class="inputs"><input type = "password" name = "Confirm_Password-req" id="confirm_password" maxlength="18"/><span class="required"><?php if(isset($reqConfirm) || isset($match)){echo htmlentities($reqConfirm) . htmlentities($match);  }?></span><label>Confirm Password</label></li>
-							<span class = "table-row"></span>
+							<li>
+                                <span class = "labels">Full Name:</span>
+                                <div class="inputs">
+                                    <div class="left-column">
+                                        <input type="text" name="First_Name-req-alpha" id="First_Name-req-alpha" maxlength="40"/><span class="required"><?php if(isset($reqfirst)){echo htmlentities($reqfirst); }?></span><label>First Name</label>
+                                    </div>
+                                    <div class="right-column">
+                                        <input type="text" name="Last_Name-req-alpha" id="lName" maxlength="40"/><span class="required"><?php if(isset($reqLast)){echo htmlentities($reqLast); }?></span><label>Last Name</label>
+                                    </div>
+                                </div>
+                            </li>
+							<li>
+                                <span class = "labels">Company Name:</span>
+                                <div class="inputs"><input type="text" name="Company_Name-req-alphachar" id="cName" maxlength="50"/><span class="required"><?php if(isset($reqCompany)){echo htmlentities($reqCompany); }?></span><label class="visible-xs">Company Name</label></div>
+                            </li>
+							<li>
+                                <span class="labels">Email Address:</span>
+                                <div class="inputs"><input type="email" name="Email-req-email" id="eMail" maxlength="50"/><span class="required"><?php if(isset($reqEmail)){echo htmlentities($reqEmail); }?></span><label class="visible-xs">Email Address</label>
+                                <label>Note: E-Mail is also your username!</label></div>
+                            </li>
+							<li>
+                                <span class="labels">Phone Number:</span>
+                                <div class="inputs"><input type="text" name="Phone-req-num" id="phone" maxlength="12"/><span class="required"><?php if(isset($reqPhone)){echo htmlentities($reqPhone); }?></span><label class = "visible-xs">Phone Number</label></div>
+                            </li>
+							<li>
+                                <span class="labels">Address:</span>
+                                <div class="inputs"><input type="text" name="Address-req-alphachar" id="address" value="<?php  ?>" maxlength="80"/><span class="required"><?php if(isset($reqAddress)){echo htmlentities($reqAddress); }?></span><label>Address</label>
+                                <input type="text" name="State-req-alpha" id="state" maxlength="50"/><span class="required"><?php if(isset($reqState)){echo htmlentities($reqState); }?></span><label>State</label>
+                                <input type="text" name="Postcode-req-num" id="pcode" maxlength="50"/><span class="required"><?php if(isset($reqPostcode)){echo htmlentities($reqPostcode); }?></span><label>Postcode</label>
+                                </div>
+                            </li>
+							<li>
+                                <span class="labels">Password:</span>
+    							<div class="inputs"><input type="password" name="Password-req" id="password" maxlength="18"/><span class="required"><?php if(isset($reqPassword)){echo htmlentities($reqPassword); }?></span><label>Password</label>
+    							<input type="password" name="Confirm_Password-req" id="confirm_password" maxlength="18"/><span class="required"><?php if(isset($reqConfirm) || isset($match)){echo htmlentities($reqConfirm) . htmlentities($match);  }?></span><label>Confirm Password</label>
+                                </div>
+                            </li>
 							<li class="inputs"><input type ="submit" name ="submit" value ="Submit" size = "6"/></li>
 							<li class="inputs"><input type="reset" value="Reset" size ="6"/></li>
 						</ul>				
