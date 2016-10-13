@@ -1,32 +1,19 @@
 html,body {
     height: 100%;
 }
-
 body {
     margin: 0;
     padding: 0;
 }
-
 .navbar-brand {
     font-size: 1.6em;
 }
-
 h1 {
     font-size: 3em;
     color: #333;
     padding-bottom: 5%;
     font-family: 'Galdeano',sans-serif;
 }
-
-.table {
-    width: 50%;
-}
-
-.table td {
-    padding-left: 50px !important;
-    border-top: none !important;
-}
-
 header {
     max-height: 120px;
     margin-top: 50px;
@@ -38,29 +25,23 @@ header {
     background-repeat: no-repeat;
     background-position: left bottom;
 }
-
 .mainContent {
     margin: 5%;
 }
-
 @media screen and (max-device-width: 800px) {
     .mainContent {
         text-align: center;
     }
 }
-
 h2,h3,h4 {
     font-weight: 700;
 }
-
 .center {
     text-align: center;
 }
-
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
-
 .columns {
     -webkit-columns: 100px 3;
     -moz-columns: 100px 3;
@@ -73,24 +54,19 @@ h2,h3,h4 {
     column-gap: 100px;
     padding-top: 10%;
 }
-
 .navbar-default {
     border: none;
 }
-
 .container-fluid {
     position: relative;
 }
-
 .carousel-control.left,.carousel-control.right {
     background-image: none;
 }
-
 .glyphicon-chevron-left, .glyphicon-chevron-right {
     text-shadow: 2px 2px 5px #144b6f;
     color: #b7dbe1;
 }
-
 .col-sm-10,.col-lg-8 {
     background-color: #fff;
     font-size: 1.4em;
@@ -100,25 +76,20 @@ h2,h3,h4 {
     border-bottom: none;
     border-color: #080808;
 }
-
 .nav-tabs {
     padding-top: 50px;
     margin-right: 0;
 }
-
 .nav-tabs a {
     color: #144b6f;
 }
-
 .login {
     text-align: center;
 }
-
 .menu {
     float: right;
     font-size: 1.2em;
 }
-
 .row {
     background-color: #144b6f;
     background: -webkit-linear-gradient(rgba(20,75,111,1),rgba(58,130,143,0.8));
@@ -126,7 +97,6 @@ h2,h3,h4 {
     background: -moz-linear-gradient(rgba(20,75,111,1),rgba(58,130,143,0.8));
     background: linear-gradient(rgba(20,75,111,1),rgba(58,130,143,0.8));
 }
-
 .mandatory {
     color: red;
 }
@@ -140,7 +110,7 @@ h2,h3,h4 {
     list-style: none;
     padding-top: 10px;
     padding-bottom: 10px;
-    display: table-cell;
+    display: block;
 }
 .contactForm {
     list-style: none;
@@ -153,33 +123,26 @@ h3 {
     font-size: 16pt;
     text-transform: uppercase;
 }
-
 .mainContent {
     overflow: auto;
 }
-
 .navbar-footer {
     margin-bottom: 0;
     border-radius: 0;
 }
-
 .navContainer {
     min-width: 70%;
 }
-
 #mainNavbar {
     padding-right: 0;
     padding-left: 0;
 }
-
 .containerfluid {
     max-height: 120px;
 }
-
 .navbar-default {
     background-color: transparent;
 }
-
 .navbar-right li {
 	margin-right: 0px;
 }
@@ -231,8 +194,11 @@ label {
     display: table-cell;
 }
 .cLabel {
-    padding-right: 40px;
     font-weight: bold;
+}
+.cContent {
+    display:inline-block;
+    vertical-align: top;
 }
 .loginButton button {
     width: 100px;
@@ -240,15 +206,20 @@ label {
 hr {
     border-top-color: #9d9d9d;
 }
-
-@media (max-width: 1024px) {
-    header {
-        background-position: top left;
-        padding-top: 60px;
-        max-height: none;
+/*Media Query for large desktop devices*/
+@media (min-width: 1200px) {
+    .navbar li {
+        font-size: 1.2em;
     }
 }
-
+/*Media Query for laptops and desktops*/
+@media (min-width: 1024px) {
+    .cLabel {
+        display: inline-block;
+        width: 15%;
+    }
+}
+/*Media Query for tablets and bigger devices*/
 @media (min-width: 768px) {
     .navbar li {
         font-size: 1em;
@@ -268,31 +239,32 @@ hr {
         text-align: left;
     }
 }
-
-@media (min-width: 1200px) {
-    .navbar li {
-        font-size: 1.2em;
+/*Media Query for mobiles and tablets*/
+@media (max-width: 1024px) {
+    header {
+        background-position: top left;
+        padding-top: 60px;
+        max-height: none;
+    }
+    .cLabel {
+        display: block;
     }
 }
-
+/*Media Query for mobile devices*/
 @media (max-width: 767px) {
     #mainNavbar {
         border: none;
     }
-
     #mainNavbar ul {
         border: none;
     }
-
     #mainNavbar li {
         width: 100%;
         text-align: center;
     }
-
     #mainNavbar a {
         border: none;
     }
-
     #mainNavbar .active a {
         background-color: #eee;
     }
@@ -313,7 +285,6 @@ hr {
     }
     .contact-list li{
         padding-right: 0px;
-        display: block;
     }
     textarea {
         max-width: 100%;
