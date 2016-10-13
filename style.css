@@ -208,15 +208,9 @@ hr {
 }
 /*Media Query for laptops and desktops*/
 @media (min-width: 1024px) {
-    .cLabel, .lLabel {
-        display: inline-block;
-    }
     .lLabel {
         width: 92px;
         text-align: left;
-    }
-    .cLabel {
-        width: 15%;
     }
     .lInput {
         margin-left: 10px;
@@ -236,6 +230,12 @@ hr {
     .forgot {
         padding-right: 20px;
     }
+    .cLabel, .lLabel {
+        display: inline-block;
+    }
+    .cLabel {
+        width: 15%;
+    }
 }
 /*Media Query for mobiles and tablets*/
 @media (max-width: 1024px) {
@@ -243,9 +243,6 @@ hr {
         background-position: top left;
         padding-top: 60px;
         max-height: none;
-    }
-    .cLabel, .lLabel {
-        display: block;
     }
 }
 /*Media Query for large desktop devices*/
@@ -298,6 +295,9 @@ hr {
         padding-bottom: 10px;
     }
     .loginButton {
+        display: block;
+    }
+    .cLabel, .lLabel {
         display: block;
     }
 }
