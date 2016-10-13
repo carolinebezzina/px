@@ -1,3 +1,8 @@
+<?php
+$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+include($WebsiteRoot . '/includes/validate.php');
+include($WebsiteRoot . '/includes/userLogin.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="active">
-                            <a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
                         <li>
                             <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
@@ -94,16 +99,24 @@
                 </div>
                 <div class="mainContent">
                     <h1 class="login">Login</h1>
-                    <ul class="loginForm">    
-                        <li>Email:</li>
-                        <li><input type = "text"></input></li>
-                        <span class = "table-row"></span>
-                        <li>Password:</li>
-                        <li><input type = "password"></input></li>
-                        <span class = "table-row"></span>
-                        <li class = "forgot"><a href = "#">Forgot Password?</a></li>
-                        <li class = "loginButton"><button>Login</button></li>
-                    </ul>
+                    <form id="form1" onsubmit ="" action="" method="post">
+                    <ul class="loginForm">
+                        <li>
+                            <span class="lLabel">Email:</span>
+                            <div class="lInput"><input type="text" id="username" name="Email-req-email" value="<?php if(isset($_POST['Email-req-email'])) echo htmlentities($_POST['Email-req-email']);?>" maxlength="35" /></div>
+                        </li>
+                        <li>
+                            <span class="lLabel">Password:</span>
+                            <div class="lInput"><input type="password" id="password" name="Password-req" value="" maxlength="35" /></div>
+                        </li>
+                        <li>
+                            <span class="forgot"><a href = "forgotpassword.php">Forgot Password?</a></span>
+                            <span class="loginButton" ><button type="submit" name="submit" value="Login">Login</button></span>
+                        </li>					
+                    </ul>	
+                    </form>													<?php 						if(isset($messages)){											foreach($messages as $key => $value){														echo '<font color="red">' . $value . '</font>';								echo '</br>';							}						}						
+						
+												// /home/southc79/public_html						?>										
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>

@@ -151,8 +151,8 @@ h3 {
     padding-left: 0px;
 }
 .loginForm li {
-    display: table-cell;
     padding: 10px;
+    text-align: center;
 }
 .forgot a {
     font-size: 16px;
@@ -196,7 +196,7 @@ label {
 .cLabel {
     font-weight: bold;
 }
-.cContent {
+.cContent, .lInput {
     display:inline-block;
     vertical-align: top;
 }
@@ -206,17 +206,20 @@ label {
 hr {
     border-top-color: #9d9d9d;
 }
-/*Media Query for large desktop devices*/
-@media (min-width: 1200px) {
-    .navbar li {
-        font-size: 1.2em;
-    }
-}
 /*Media Query for laptops and desktops*/
 @media (min-width: 1024px) {
-    .cLabel {
+    .cLabel, .lLabel {
         display: inline-block;
+    }
+    .lLabel {
+        width: 92px;
+        text-align: left;
+    }
+    .cLabel {
         width: 15%;
+    }
+    .lInput {
+        margin-left: 10px;
     }
 }
 /*Media Query for tablets and bigger devices*/
@@ -225,18 +228,16 @@ hr {
         font-size: 1em;
     }
     .loginForm {
-        width: 50%;
         margin: auto;
-    }
-    .forgot {
-        display: inline-block !important;
-    }
-    .loginButton {
-        display: inline-block !important;
-        float: right;
     }
     .registration .labels {
         text-align: left;
+    }
+    .loginButton {
+        float: right;
+    }
+    .forgot {
+        float: left;
     }
 }
 /*Media Query for mobiles and tablets*/
@@ -246,8 +247,14 @@ hr {
         padding-top: 60px;
         max-height: none;
     }
-    .cLabel {
+    .cLabel, .lLabel {
         display: block;
+    }
+}
+/*Media Query for large desktop devices*/
+@media (min-width: 1200px) {
+    .navbar li {
+        font-size: 1.2em;
     }
 }
 /*Media Query for mobile devices*/
@@ -288,5 +295,12 @@ hr {
     }
     textarea {
         max-width: 100%;
+    }
+    .forgot {
+        display: block;
+        padding-bottom: 10px;
+    }
+    .loginButton {
+        display: block;
     }
 }
