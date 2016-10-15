@@ -163,27 +163,25 @@ h3 {
     padding-left: 0;
     padding-top: 20px;
 }
-.registration {
+.registration, .booking {
     list-style: none;
     padding-left: 0;
     padding-top: 20px;
 }
-.registration li {
+.registration li, .booking li {
     padding-bottom: 10px;
 }
 label {
     color: #666;
     font-weight: normal;
     font-size: 16px;
-    /*width: 44%;*/
     padding-left: 2px;
     padding-right: 2px;
-    text-align: center;
     vertical-align: top;
 }
 .cLabel {
     font-weight: bold;
-}
+} 
 .cContent, .lInput, .labels, .inputs {
     display:inline-block;
     vertical-align: top;
@@ -218,9 +216,6 @@ hr {
     .loginForm {
         margin: auto;
     }
-    .registration .labels {
-        text-align: left;
-    }
     .forgot {
         padding-right: 20px;
     }
@@ -233,7 +228,6 @@ hr {
     .left-column, .right-column {
         display: inline-block;
         width: 45%;
-        text-align: center;
     }
     .labels {
         width: 25%;
@@ -279,9 +273,6 @@ hr {
     }
     .labels{
         display: none;
-    }
-    .mobile-hide {
-        display: hidden;
     }
     header {
         background-position: center;

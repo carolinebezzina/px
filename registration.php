@@ -62,7 +62,7 @@
                         <nav class="navbar navbar-default">
                             <div class="hidden-xs" id="mainNavbar">
                                 <ul class="nav nav-tabs navbar-right">
-                                    <li class="active">
+                                    <li>
                                         <a href="index.html">Home</a>
                                     </li>
                                     <li>
@@ -114,10 +114,12 @@
                                 <span class = "labels">Full Name:</span>
                                 <div class="inputs">
                                     <div class="left-column">
-                                        <input type="text" name="First_Name-req-alpha" id="First_Name-req-alpha" maxlength="40"/><span class="required"><?php if(isset($reqfirst)){echo htmlentities($reqfirst); }?></span><label>First Name</label>
+                                        <input type="text" name="First_Name-req-alpha" id="First_Name-req-alpha" maxlength="40"/><span class="required"><?php if(isset($reqfirst)){echo htmlentities($reqfirst); }?></span>
+                                        <br/><label>First Name</label>
                                     </div>
                                     <div class="right-column">
-                                        <input type="text" name="Last_Name-req-alpha" id="lName" maxlength="40"/><span class="required"><?php if(isset($reqLast)){echo htmlentities($reqLast); }?></span><label>Last Name</label>
+                                        <input type="text" name="Last_Name-req-alpha" id="lName" maxlength="40"/><span class="required"><?php if(isset($reqLast)){echo htmlentities($reqLast); }?></span>
+                                        <br/><label>Last Name</label>
                                     </div>
                                 </div>
                             </li>
@@ -127,8 +129,13 @@
                             </li>
 							<li>
                                 <span class="labels">Email Address:</span>
-                                <div class="inputs"><input type="email" name="Email-req-email" id="eMail" maxlength="50"/><span class="required"><?php if(isset($reqEmail)){echo htmlentities($reqEmail); }?></span><label class="visible-xs">Email Address</label>
-                                <label>Note: E-Mail is also your username!</label></div>
+                                <div class="inputs">
+                                    <div class="left-column">
+                                        <input type="email" name="Email-req-email" id="eMail" maxlength="50"/><span class="required"><?php if(isset($reqEmail)){echo htmlentities($reqEmail); }?></span><label class="visible-xs">Email Address</label>
+                                    </div>
+                                    <div class="right-column">
+                                        <label>Note: Email is also your username!</label></div>
+                                    </div>
                             </li>
 							<li>
                                 <span class="labels">Phone Number:</span>
@@ -136,19 +143,48 @@
                             </li>
 							<li>
                                 <span class="labels">Address:</span>
-                                <div class="inputs"><input type="text" name="Address-req-alphachar" id="address" value="<?php  ?>" maxlength="80"/><span class="required"><?php if(isset($reqAddress)){echo htmlentities($reqAddress); }?></span><label>Address</label>
-                                <input type="text" name="State-req-alpha" id="state" maxlength="50"/><span class="required"><?php if(isset($reqState)){echo htmlentities($reqState); }?></span><label>State</label>
-                                <input type="text" name="Postcode-req-num" id="pcode" maxlength="50"/><span class="required"><?php if(isset($reqPostcode)){echo htmlentities($reqPostcode); }?></span><label>Postcode</label>
+                                <div class="inputs">
+                                    <div class="left-column">
+                                        <input type="text" name="Address-req-alphachar" id="address" value="<?php  ?>" maxlength="80"/><span class="required"><?php if(isset($reqAddress)){echo htmlentities($reqAddress); }?></span>
+                                        <br/><label>Address</label>
+                                        <br/>
+                                        <select name="State-req-alpha" id="state">
+                                            <option name="select" value="Select One" >-------------Select-------------</option>
+                                            <option name="act">Australian Capital Territory</option>
+                                            <option name="nsw">New South Wales</option>
+                                            <option name="nt">Northern Territory</option>
+                                            <option name="qld">Queensland</option>
+                                            <option name="sa">South Australia</option>
+                                            <option name="tas">Tasmania</option>
+                                            <option name="vic">Victoria</option>
+                                            <option name="wa">Western Australia</option>
+                                        </select>
+                                        <span class="required"><?php if(isset($reqState)){echo htmlentities($reqState); }?></span>
+                                        <br/><label>State</label>
+                                    </div>
+                                    <div class="right-column">
+                                        <input type="text" name="Postcode-req-num" id="pcode" maxlength="50"/><span class="required"><?php if(isset($reqPostcode)){echo htmlentities($reqPostcode); }?></span>
+                                        <br/><label>Postcode</label>
+                                    </div>
                                 </div>
                             </li>
 							<li>
                                 <span class="labels">Password:</span>
-    							<div class="inputs"><input type="password" name="Password-req" id="password" maxlength="18"/><span class="required"><?php if(isset($reqPassword)){echo htmlentities($reqPassword); }?></span><label>Password</label>
-    							<input type="password" name="Confirm_Password-req" id="confirm_password" maxlength="18"/><span class="required"><?php if(isset($reqConfirm) || isset($match)){echo htmlentities($reqConfirm) . htmlentities($match);  }?></span><label>Confirm Password</label>
+    							<div class="inputs">
+                                    <div class="right-column">
+                                        <input type="password" name="Password-req" id="password" maxlength="18"/><span class="required"><?php if(isset($reqPassword)){echo htmlentities($reqPassword); }?></span>
+                                        <br/><label>Password</label>
+        							</div>
+                                    <div class="left-column">
+                                        <input type="password" name="Confirm_Password-req" id="confirm_password" maxlength="18"/><span class="required"><?php if(isset($reqConfirm) || isset($match)){echo htmlentities($reqConfirm) . htmlentities($match);  }?></span>
+                                        <br/><label>Confirm Password</label>
+                                    </div>
                                 </div>
                             </li>
-							<li class="inputs"><input type ="submit" name ="submit" value ="Submit" size = "6"/></li>
-							<li class="inputs"><input type="reset" value="Reset" size ="6"/></li>
+							<li>
+                                <input type ="submit" name ="submit" value ="Submit" size = "6"/>
+                                <input type="reset" value="Reset" size ="6"/>
+                            </li>
 						</ul>				
 					</form>	
                 </div>
