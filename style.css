@@ -136,7 +136,7 @@ h3 {
 .navbar-right li {
 	margin-right: 0px;
 }
-.registration li, .booking li, .users li, .contact-list li {
+.registration li, .booking li, .users li, .contact-list li, .accounts li {
     padding-bottom: 10px;
 }
 .contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users {
