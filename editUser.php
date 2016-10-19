@@ -31,7 +31,7 @@
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
                         <li>
                             <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
@@ -126,7 +126,7 @@
 										<br/><label for="fname">First Name</label> 
 									</div>
 									<div class="right-column">
-										<input type = "text" name = "lName" id="lName" value ="<?php if(!empty($_SESSION['lname'])) {echo $_SESSION['lname'];} ?>"   maxlength="40"/>]
+										<input type = "text" name = "lName" id="lName" value ="<?php if(!empty($_SESSION['lname'])) {echo $_SESSION['lname'];} ?>"   maxlength="40"/>
 										<br/><label for="lname">Last Name</label>
 									</div>
 								</div>

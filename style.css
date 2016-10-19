@@ -36,9 +36,6 @@ header {
 h2,h3,h4 {
     font-weight: 700;
 }
-.center {
-    text-align: center;
-}
 .carousel-inner > .item > img {
     margin: 0 auto;
 }
@@ -103,22 +100,6 @@ h2,h3,h4 {
 .size12 {
     font-size: 12pt;
 }
-.contact-list {
-    padding-left: 0px;
-}
-.contact-list li {
-    list-style: none;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: block;
-}
-.contactForm {
-    list-style: none;
-    padding-left: 0px;
-}
-.contactForm li {
-    padding-top: 10px;
-}
 h3 {
     font-size: 16pt;
     text-transform: uppercase;
@@ -134,8 +115,8 @@ h3 {
     min-width: 70%;
 }
 #mainNavbar {
-    padding-right: 0;
-    padding-left: 0;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 .containerfluid {
     max-height: 120px;
@@ -146,9 +127,18 @@ h3 {
 .navbar-right li {
 	margin-right: 0px;
 }
-.loginForm {
-    list-style: none;
+.registration li, .booking li, .users li, .contact-list li {
+    padding-bottom: 10px;
+}
+.contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users {
     padding-left: 0px;
+    list-style: none;
+}
+.registration, .booking, .users, .accounts, .contactForm li, .contact-list li {
+    padding-top: 10px;
+}
+.contact-list li {
+    display: block;
 }
 .loginForm li {
     padding: 10px;
@@ -157,19 +147,6 @@ h3 {
 .forgot a {
     font-size: 16px;
     vertical-align: center;
-}
-.accounts {
-    list-style: none;
-    padding-left: 0px;
-    padding-top: 20px;
-}
-.registration, .booking, .users {
-    list-style: none;
-    padding-left: 0;
-    padding-top: 20px;
-}
-.registration li, .booking li, .users li {
-    padding-bottom: 10px;
 }
 label {
     color: #666;
