@@ -1,5 +1,5 @@
 <?php
-	include('validate.php');
+	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];	include($WebsiteRoot . '/includes/validate.php');	include($WebsiteRoot . '/includes/newUser.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,8 +148,8 @@
                                         <input type="text" name="Address-req-alphachar" id="address" value="<?php  ?>" maxlength="80"/><span class="required"><?php if(isset($reqAddress)){echo htmlentities($reqAddress); }?></span>
                                         <br/><label>Address</label>
                                         <br/>
-                                        <select name="State-req-alpha" id="state">
-                                            <option name="select" value="Select One" >-------------Select-------------</option>
+                                        <select name="State-req" id="state">
+                                            <option name="select" value="selectreq" >-------------Select-------------</option>
                                             <option name="act">Australian Capital Territory</option>
                                             <option name="nsw">New South Wales</option>
                                             <option name="nt">Northern Territory</option>
@@ -186,7 +186,7 @@
                                 <input type="reset" value="Reset" size ="6"/>
                             </li>
 						</ul>				
-					</form>	
+					</form>											
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
