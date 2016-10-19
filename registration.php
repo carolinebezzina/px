@@ -96,7 +96,7 @@
                     <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class=                   "sr-only">Next</span></a>
                 </div>
                 <div class="mainContent">
-					<h1> Customer Registration</h1>
+					<h1>Customer Registration</h1>
 					<?php 
 					if(isset($messages)){
 						foreach($messages as $key => $value){

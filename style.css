@@ -160,15 +160,15 @@ h3 {
 }
 .accounts {
     list-style: none;
-    padding-left: 0;
+    padding-left: 0px;
     padding-top: 20px;
 }
-.registration, .booking {
+.registration, .booking, .users {
     list-style: none;
     padding-left: 0;
     padding-top: 20px;
 }
-.registration li, .booking li {
+.registration li, .booking li, .users li {
     padding-bottom: 10px;
 }
 label {
