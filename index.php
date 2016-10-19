@@ -1,3 +1,8 @@
+<?php 
+    $WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+    include ($WebsiteRoot . '/includes/editPageSQL.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,73 +100,21 @@
                 <div class="mainContent">
                     <h1>Home</h1>
                     <img src="img/epalicence.jpg" class="epa">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Duis in leo ac libero porta eleifend. Vivamus felis massa,
-                    ultrices ut neque ac, volutpat accumsan metus. Sed rhoncus
-                    velit quis leo ultricies, non pulvinar quam consequat. Ut
-                    condimentum neque ac neque volutpat auctor. Duis nibh quam,
-                    bibendum eu ipsum vitae, tincidunt dignissim erat.
-                    Curabitur at magna in massa ultricies sodales. Phasellus a
-                    rhoncus ex, a aliquam urna. Praesent iaculis massa et
-                    mauris sodales, ultricies sagittis leo viverra. Vestibulum
-                    vestibulum felis et ante malesuada iaculis non ac magna.
-                    Phasellus vehicula mi urna, in viverra neque lobortis
-                    lacinia.</p>
-                    <p>Vestibulum aliquam mauris in arcu sagittis facilisis.
-                    Phasellus tempus, risus in consectetur pretium, est velit
-                    sollicitudin urna, blandit tempus est arcu nec urna. Etiam
-                    feugiat malesuada fermentum. Vestibulum nec ipsum et leo
-                    venenatis porta. Nam eu sem et elit egestas vulputate vel
-                    et quam. Cras blandit, orci a semper convallis, neque velit
-                    feugiat turpis, sit amet pharetra est nibh in purus. Nulla
-                    elementum magna sem, nec ultrices mauris posuere in. Morbi
-                    sollicitudin et velit nec bibendum. Nullam scelerisque
-                    justo facilisis velit pretium, ut tempor magna ornare.</p>
+                    
+                    <?php
+                        if (mysqli_num_rows($rs_home) > 0) {
+                            while ($row = mysqli_fetch_assoc($rs_home)) {
+                                echo $row["main_content"];
+                    ?>
+
                     <div class="columns">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Cras et libero libero. Quisque sed tristique
-                        magna, quis pretium felis. Vivamus ac libero eu tellus
-                        dignissim euismod. Cras a ipsum ac justo porta
-                        vehicula. Class aptent taciti sociosqu ad litora
-                        torquent per conubia nostra, per inceptos himenaeos.
-                        Suspendisse nisi diam, ultrices sit amet volutpat sit
-                        amet, maximus at velit. Morbi a aliquet diam. Nunc
-                        porta ut ante at ullamcorper. Suspendisse malesuada
-                        purus ut urna mattis laoreet. Donec est dolor, blandit
-                        nec pretium sit amet, vulputate a neque. Aliquam
-                        euismod imperdiet tortor, sed bibendum augue consequat
-                        ac. Integer felis ipsum, molestie quis est vel,
-                        fringilla egestas risus. Nam eu purus eget nibh
-                        dignissim ultrices. Etiam mollis eros vel ligula
-                        posuere rhoncus. Sed finibus felis ex, quis egestas
-                        quam lobortis at. Quisque tempus euismod velit at
-                        pulvinar.</p>
-                        <p>Nunc vel tellus quis dui tempor finibus sed ut diam.
-                        Praesent ultrices urna eget quam ullamcorper suscipit.
-                        Donec ipsum ipsum, auctor vitae finibus eget, tristique
-                        quis nunc. Duis non tristique tortor, ultrices
-                        ultricies sem. Integer rutrum nisi non mi mollis
-                        placerat. Sed porta varius diam sit amet interdum.
-                        Donec consectetur egestas molestie. Maecenas semper
-                        ullamcorper odio sit amet aliquam. Aliquam euismod
-                        ligula vel erat finibus pellentesque. Etiam vulputate
-                        massa at sem convallis tincidunt in vitae risus.</p>
-                        <p>Nullam porttitor sem nec turpis feugiat ultrices.
-                        Fusce eleifend, eros et congue efficitur, turpis ipsum
-                        iaculis urna, ut posuere elit mi et arcu. Quisque
-                        sodales dui id mi suscipit elementum. Mauris
-                        pellentesque nulla eros, ut congue augue vehicula non.
-                        Donec commodo libero ex, non auctor tellus consectetur
-                        quis. Sed urna eros, posuere tristique gravida ut,
-                        sodales eget justo. Vestibulum tempor ex sed ligula
-                        vulputate tincidunt. Nunc id sapien sagittis, venenatis
-                        magna tristique, tempor lacus. Quisque diam mi, rutrum
-                        eget justo vel, porttitor ultrices nulla. Proin
-                        efficitur, nisl ac gravida ultrices, nisi erat
-                        vulputate nisi, quis sodales turpis odio eu enim. Sed
-                        malesuada placerat mauris, sit amet gravida justo
-                        pellentesque ac. Vivamus convallis a dui ut cursus.
-                        Vivamus sollicitudin sem sed pharetra interdum.</p>
+                        <?php
+                                    echo $row["column_left"];
+                                    echo $row["column_middle"];
+                                    echo $row["column_right"];
+                                }
+                            }
+                        ?>
                     </div>
                 </div>
             </div>

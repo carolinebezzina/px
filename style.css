@@ -136,10 +136,10 @@ h3 {
 .navbar-right li {
 	margin-right: 0px;
 }
-.registration li, .booking li, .users li, .contact-list li, .accounts li {
+.registration li, .booking li, .users li, .contact-list li, .accounts li, #editpages li {
     padding-bottom: 10px;
 }
-.contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users {
+.contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users, #editpages {
     padding-left: 0px;
     list-style: none;
 }

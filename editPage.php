@@ -1,7 +1,12 @@
+<?php 
+    $WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+    include ($WebsiteRoot . '/includes/editPageSQL.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Services - South Coast Tyre Recycling</title>
+    <title>Edit Pages - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -35,7 +40,7 @@
                         <li>
                             <a href="index.html">Home</a>
                         </li>
-                        <li class="active">
+                        <li>
                             <a href="services.html">Services</a>
                         </li>
                         <li>
@@ -62,7 +67,7 @@
                                     <li>
                                         <a href="index.html">Home</a>
                                     </li>
-                                    <li class="active">
+                                    <li>
                                         <a href="services.html">Services</a>
                                     </li>
                                     <li>
@@ -93,75 +98,81 @@
                     <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class= "sr-only">Next</span></a>
                 </div>
                 <div class="mainContent">
-                    <h1>Services</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Duis in leo ac libero porta eleifend. Vivamus felis massa,
-                    ultrices ut neque ac, volutpat accumsan metus. Sed rhoncus
-                    velit quis leo ultricies, non pulvinar quam consequat. Ut
-                    condimentum neque ac neque volutpat auctor. Duis nibh quam,
-                    bibendum eu ipsum vitae, tincidunt dignissim erat.
-                    Curabitur at magna in massa ultricies sodales. Phasellus a
-                    rhoncus ex, a aliquam urna. Praesent iaculis massa et
-                    mauris sodales, ultricies sagittis leo viverra. Vestibulum
-                    vestibulum felis et ante malesuada iaculis non ac magna.
-                    Phasellus vehicula mi urna, in viverra neque lobortis
-                    lacinia.</p>
-                    <p>Vestibulum aliquam mauris in arcu sagittis facilisis.
-                    Phasellus tempus, risus in consectetur pretium, est velit
-                    sollicitudin urna, blandit tempus est arcu nec urna. Etiam
-                    feugiat malesuada fermentum. Vestibulum nec ipsum et leo
-                    venenatis porta. Nam eu sem et elit egestas vulputate vel
-                    et quam. Cras blandit, orci a semper convallis, neque velit
-                    feugiat turpis, sit amet pharetra est nibh in purus. Nulla
-                    elementum magna sem, nec ultrices mauris posuere in. Morbi
-                    sollicitudin et velit nec bibendum. Nullam scelerisque
-                    justo facilisis velit pretium, ut tempor magna ornare.</p>
-                    <div class="columns">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Cras et libero libero. Quisque sed tristique
-                        magna, quis pretium felis. Vivamus ac libero eu tellus
-                        dignissim euismod. Cras a ipsum ac justo porta
-                        vehicula. Class aptent taciti sociosqu ad litora
-                        torquent per conubia nostra, per inceptos himenaeos.
-                        Suspendisse nisi diam, ultrices sit amet volutpat sit
-                        amet, maximus at velit. Morbi a aliquet diam. Nunc
-                        porta ut ante at ullamcorper. Suspendisse malesuada
-                        purus ut urna mattis laoreet. Donec est dolor, blandit
-                        nec pretium sit amet, vulputate a neque. Aliquam
-                        euismod imperdiet tortor, sed bibendum augue consequat
-                        ac. Integer felis ipsum, molestie quis est vel,
-                        fringilla egestas risus. Nam eu purus eget nibh
-                        dignissim ultrices. Etiam mollis eros vel ligula
-                        posuere rhoncus. Sed finibus felis ex, quis egestas
-                        quam lobortis at. Quisque tempus euismod velit at
-                        pulvinar.</p>
-                        <p>Nunc vel tellus quis dui tempor finibus sed ut diam.
-                        Praesent ultrices urna eget quam ullamcorper suscipit.
-                        Donec ipsum ipsum, auctor vitae finibus eget, tristique
-                        quis nunc. Duis non tristique tortor, ultrices
-                        ultricies sem. Integer rutrum nisi non mi mollis
-                        placerat. Sed porta varius diam sit amet interdum.
-                        Donec consectetur egestas molestie. Maecenas semper
-                        ullamcorper odio sit amet aliquam. Aliquam euismod
-                        ligula vel erat finibus pellentesque. Etiam vulputate
-                        massa at sem convallis tincidunt in vitae risus.</p>
-                        <p>Nullam porttitor sem nec turpis feugiat ultrices.
-                        Fusce eleifend, eros et congue efficitur, turpis ipsum
-                        iaculis urna, ut posuere elit mi et arcu. Quisque
-                        sodales dui id mi suscipit elementum. Mauris
-                        pellentesque nulla eros, ut congue augue vehicula non.
-                        Donec commodo libero ex, non auctor tellus consectetur
-                        quis. Sed urna eros, posuere tristique gravida ut,
-                        sodales eget justo. Vestibulum tempor ex sed ligula
-                        vulputate tincidunt. Nunc id sapien sagittis, venenatis
-                        magna tristique, tempor lacus. Quisque diam mi, rutrum
-                        eget justo vel, porttitor ultrices nulla. Proin
-                        efficitur, nisl ac gravida ultrices, nisi erat
-                        vulputate nisi, quis sodales turpis odio eu enim. Sed
-                        malesuada placerat mauris, sit amet gravida justo
-                        pellentesque ac. Vivamus convallis a dui ut cursus.
-                        Vivamus sollicitudin sem sed pharetra interdum.</p>
-                    </div>
+                    <h1>Edit Pages</h1>
+                    
+                    <form name = "selectpage" id="selectpage" method="POST" action="includes\selectpage.php">
+                        Select page to edit:
+                        <select name="pages" id="pages">
+                            <?php
+                                while ($row = mysqli_fetch_array($rs_pages)) {
+                                    echo "<option value='" . $row['page_title'] . "'>" . $row['page_title'] . "</option>";
+                                }
+                            ?>
+                        </select>
+                        <input type ="submit" id="selectpage" name ="selectpage" value ="Select Page" size = "6" />
+                    </form>
+                    
+                    <form name="pages" id="pages" method="post" action="includes\updatepage.php" accept-charset='UTF-8'>
+                        <?php 
+                            if(!empty($_SESSION['pagetitle'])){echo "<h2 id='currentedit'>Editing " . $_SESSION['pagetitle'] . " Page</h2>";}
+                        ?>
+                        <ul id="editpages">
+                            <li>
+                                Main Section:
+                            </li>
+                            <li>
+                                <textarea rows="4" cols="60" maxlength="2000" name="maincontent" id="maincontent"><?php if(!empty($_SESSION['maincontent'])){echo $_SESSION['maincontent'];} ?></textarea>
+                            </li>
+                            <li>
+                                Left Column:
+                            </li>
+                            <li>
+                                <textarea rows="4" cols="60" maxlength="500" name="columnleft" id="columnleft"><?php if(!empty($_SESSION['columnleft'])){echo $_SESSION['columnleft'];} ?></textarea>
+                            </li>
+                            <li>
+                                Middle Column:
+                            </li>
+                            <li>
+                                <textarea rows="4" cols="60" maxlength="500" name="columnmiddle" id="columnmiddle"><?php if(!empty($_SESSION['columnmiddle'])){echo $_SESSION['columnmiddle'];} ?></textarea>
+                            </li>
+                            <li>
+                                Right Column:
+                            </li>
+                            <li>
+                                <textarea rows="4" cols="60" maxlength="500" name="columnright" id="columnright"><?php if(!empty($_SESSION['columnright'])){echo $_SESSION['columnright'];} ?></textarea>
+                            </li>
+                            <li>
+                                <input type ="submit" class="hidden" id="submitpage" name ="submitpage" value ="Submit" size = "6"/>
+                            </li>
+                        </ul>
+                    </form>
+                    <button id="enableEdit" onclick="enableEdit()">Edit Details</button>
+                    <button id="cancelEdit" class="hidden" onclick="disableEdit()">Cancel Edit</button> 
+                    
+                    <script type="text/javascript">
+                        
+                        function enableEdit() {
+                            document.getElementById("maincontent").disabled = false;
+                            document.getElementById("columnleft").disabled = false;
+                            document.getElementById("columnmiddle").disabled = false;
+                            document.getElementById("columnright").disabled = false;
+                            document.getElementById("submitpage").classList.remove("hidden");
+                            document.getElementById("enableEdit").classList.add("hidden");
+                            document.getElementById("cancelEdit").classList.remove("hidden");
+                        }
+
+                        function disableEdit() {
+                            document.getElementById("maincontent").disabled = true;
+                            document.getElementById("columnleft").disabled = true;
+                            document.getElementById("columnmiddle").disabled = true;
+                            document.getElementById("columnright").disabled = true;
+                            document.getElementById("enableEdit").classList.remove("hidden");
+                            document.getElementById("cancelEdit").classList.add("hidden");
+                        }
+
+                        window.onload = disableEdit;
+
+                    </script>
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
