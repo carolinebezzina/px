@@ -221,6 +221,12 @@ hr {
     .inputs {
         width: 74%;
     }
+    .left-column input, .right-column input {
+        max-width: 100%;
+    }
+    .contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users {
+        text-align: left;
+    }
 }
 /*Media Query for mobiles and tablets*/
 @media (max-width: 1024px) {
