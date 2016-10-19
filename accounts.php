@@ -96,32 +96,75 @@
                     <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class= "sr-only">Next</span></a>
                 </div>
                 <div class="mainContent">
-                    <h1> Accounts Page</h1>
+                    <h1>Accounts Page</h1>
                             <form name="accounts" id="accounts" method="post" action="accountUpdate.php" accept-charset="UTF-8">
                             <input type = "hidden" name ="submitted" id="submitted" value="1"/>
                                 <ul class = "accounts">
-                                    <span class = "table-row"></span>
-                                    <li class = "labels">Full Name:</li>
-                                    <li class="inputs"><input type = "text" name = "fName" id="Fname" value ="<?php echo $fname; ?>" maxlength="40"/><label for="fname">First Name</label></li>
-                                    <li class="inputs"><input type = "text" name = "lName" id="lName" value ="<?php echo $lname; ?>" maxlength="40"/><label for="lname">Last Name</label></li>
-                                    <span class = "table-row"></span>
-                                    <li class = "labels">Company Name:</li>
-                                    <li class="inputs"><input type = "text" name = "cName" id="cName" value ="<?php echo $businessName; ?>" maxlength="50"/><label for="cname" class = "visible-xs">Company Name</label></li>
-                                    <span class = "table-row"></span>
-                                    <li class = "labels">Email Address:</li>
-                                    <li class="inputs"><input type = "email" name = "eMail" id="eMail" value ="<?php echo $email; ?>" maxlength="50"/><label for="email" class="visible-xs">Email Address</label></li>
-                                    <li class="inputs"><label>Note: Email is also your username!</label></li>
-                                    <span class = "table-row"></span>
-                                    <li class = "labels">Phone Number:</li>
-                                    <li class="inputs"><input type = "phone" name = "phone" id="phoneNum" value ="<?php echo $phone; ?>" maxlength="12"/><label for="phone" class="visible-xs">Phone Number</label></li>
-                                    <span class = "table-row"></span>
-                                    <li class = "labels">Address:</li>
-                                    <li class="inputs"><input type = "text" name = "address" id="address" value ="<?php echo $address; ?>" maxlength="50"/><label for="address">Address</label></li>
-                                    <span class = "table-row"></span>
-                                    <li class="mobile-hide"></li>
-                                    <li class="inputs"><input type = "text" name = "state" id="state" value ="<?php echo $state; ?>" maxlength="50"/><label for="state">State</label></li>
-                                    <li class="inputs"><input type = "text" name = "pcode" id="pcode" value ="<?php echo $postcode; ?>" maxlength="50"/><label for="postcode">Postcode</label></li>
-                                    <span class = "table-row"></span>
+                                    <li>
+                                        <span class = "labels">Full Name:</span>
+                                        <div class="inputs">
+                                            <div class="left-column">
+                                                <input type = "text" name = "fName" id="Fname" value ="<?php echo $fname; ?>" maxlength="40"/>
+                                                <br/><label>First Name</label>
+                                            </div>
+                                            <div class="right-column">
+                                                <input type = "text" name = "lName" id="lName" value ="<?php echo $lname; ?>" maxlength="40"/>
+                                                <br/><label for="lname">Last Name</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class = "labels">Company Name:</span>
+                                        <div class="inputs">
+                                            <input type = "text" name = "cName" id="cName" value ="<?php echo $businessName; ?>" maxlength="50"/>
+                                            <label for="cname" class = "visible-xs">Company Name</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="labels">Email Address:</span>
+                                        <div class="inputs">
+                                            <div class="left-column">
+                                                <input type = "email" name = "eMail" id="eMail" value ="<?php echo $email; ?>" maxlength="50"/>
+                                                <label for="email" class="visible-xs">Email Address</label>
+                                            </div>
+                                            <div class="right-column">
+                                                <label>Note: Email is also your username!</label></div>
+                                            </div>
+                                    </li>
+                                    <li>
+                                        <span class="labels">Phone Number:</span>
+                                        <div class="inputs">
+                                            <input type = "text" name = "phone" id="phoneNum" value ="<?php echo $phone; ?>" maxlength="12"/>
+                                            <label for="phone" class="visible-xs">Phone Number</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <span class="labels">Address:</span>
+                                        <div class="inputs">
+                                            <div class="left-column">
+                                                <input type = "text" name = "address" id="address" value ="<?php echo $address; ?>" maxlength="50"/>
+                                                <br/><label for="address">Address</label>
+                                                <br/>
+                                                <select name="State-req" id="state" value ="<?php echo $state; ?>">
+                                                    <option name="select" value="selectreq" >-------------Select-------------</option>
+                                                    <option name="act">Australian Capital Territory</option>
+                                                    <option name="nsw">New South Wales</option>
+                                                    <option name="nt">Northern Territory</option>
+                                                    <option name="qld">Queensland</option>
+                                                    <option name="sa">South Australia</option>
+                                                    <option name="tas">Tasmania</option>
+                                                    <option name="vic">Victoria</option>
+                                                    <option name="wa">Western Australia</option>
+                                                </select>
+                                                <span class="required"><?php if(isset($reqState)){echo htmlentities($reqState); }?></span>
+                                                <br/><label for="state">State</label>
+                                            </div>
+                                            <div class="right-column">
+                                                <input type = "text" name = "pcode" id="pcode" value ="<?php echo $postcode; ?>" maxlength="50"/>
+                                                <br/><label for="postcode">Postcode</label>
+                                            </div>
+                                        </div>
+                                    </li>
                                     <li><input class="hidden" type ="submit" id="submit" name ="editSubmit" value ="Submit" size = "6"/></li>
                                 </ul>
                             </form>
@@ -171,10 +214,6 @@
     
                     </script>
                     
-                    </script>
-                                        
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
