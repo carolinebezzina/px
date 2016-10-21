@@ -189,6 +189,9 @@ hr {
 .address {
     width: 60%;
 }
+.left-column, .right-column {
+    vertical-align: top;
+}
 /*Media Query for laptops and desktops*/
 @media (min-width: 1024px) {
     .lLabel {
