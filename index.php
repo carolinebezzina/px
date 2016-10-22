@@ -16,6 +16,7 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
+    <meta name="description" content="South Coast Tyre Recycling is an EPA certified company that offer a pick-up service to customers, which allows for the easy disposal of unwanted tyres.">
 </head>
 <body>
     <div class="container-fluid text-center">
