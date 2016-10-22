@@ -100,7 +100,7 @@
                 </div>
                 <div class="mainContent">
                     <h1>Home</h1>
-                    <img src="img/epalicence.jpg" class="epa">
+                    <img src="img/epalicence.jpg" class="epa" alt="NSW EPA Licence No. 20651">
                     
                     <?php
                         if (mysqli_num_rows($rs_home) > 0) {
