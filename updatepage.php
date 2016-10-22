@@ -7,6 +7,10 @@
 	
 	if(isset($_POST["submitpage"])){	
 		
+		$_SESSION['maincontent'] = $_POST['maincontent'];
+		$_SESSION['columnleft'] = $_POST['columnleft'];
+		$_SESSION['columnmiddle'] = $_POST['columnmiddle'];
+		$_SESSION['columnright'] = $_POST['columnright'];
 		$main_content = $_POST['maincontent'];
 		$column_left = $_POST['columnleft'];
 		$column_middle = $_POST['columnmiddle'];

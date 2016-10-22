@@ -124,7 +124,6 @@ h3 {
     border-radius: 0;
     bottom: 0px;
     width: 100%;
-    position: absolute;
 }
 .navContainer {
     min-width: 70%;
@@ -209,6 +208,9 @@ hr {
     }
     .loginForm {
         margin: auto;
+    }
+    .loginForm li {
+        text-align: center;
     }
     .forgot {
         padding-right: 20px;
