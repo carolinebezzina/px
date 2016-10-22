@@ -24,7 +24,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.html">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -38,19 +38,19 @@
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </li>
                         <li class="active">
-                            <a href="services.html">Services</a>
+                            <a href="services.php">Services</a>
                         </li>
                         <li>
-                            <a href="why.html">Why?</a>
+                            <a href="why.php">Why?</a>
                         </li>
                         <li>
-                            <a href="about.html">About Us</a>
+                            <a href="about.php">About Us</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -65,19 +65,19 @@
                             <div class="hidden-xs" id="mainNavbar">
                                 <ul class="nav nav-tabs navbar-right">
                                     <li>
-                                        <a href="index.html">Home</a>
+                                        <a href="index.php">Home</a>
                                     </li>
                                     <li class="active">
-                                        <a href="services.html">Services</a>
+                                        <a href="services.php">Services</a>
                                     </li>
                                     <li>
-                                        <a href="why.html">Why?</a>
+                                        <a href="why.php">Why?</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">About Us</a>
+                                        <a href="about.php">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="contact.php">Contact</a>
                                     </li>
                                 </ul>
                             </div>

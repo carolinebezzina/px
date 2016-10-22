@@ -1,13 +1,7 @@
-<?php
-session_start();
-$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
-include($WebsiteRoot . '/includes/validate.php');
-include($WebsiteRoot . '/includes/userLogin.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login - South Coast Tyre Recycling</title>
+    <title>Contact - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -29,7 +23,7 @@ include($WebsiteRoot . '/includes/userLogin.php');
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
+                        <li>
                             <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
                         <li>
@@ -50,7 +44,7 @@ include($WebsiteRoot . '/includes/userLogin.php');
                         <li>
                             <a href="about.php">About Us</a>
                         </li>
-                        <li>
+                        <li class="active">
                             <a href="contact.php">Contact</a>
                         </li>
                     </ul>
@@ -77,7 +71,7 @@ include($WebsiteRoot . '/includes/userLogin.php');
                                     <li>
                                         <a href="about.php">About Us</a>
                                     </li>
-                                    <li>
+                                    <li class="active">
                                         <a href="contact.php">Contact</a>
                                     </li>
                                 </ul>
@@ -99,32 +93,46 @@ include($WebsiteRoot . '/includes/userLogin.php');
                     <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class= "sr-only">Next</span></a>
                 </div>
                 <div class="mainContent">
-                    <h1 class="login">Login</h1>
-                    <form id="form1" onsubmit ="" action="" method="post">
-                    <ul class="loginForm">
+                    <h1>Contact</h1>
+                    <h3>
+                        South Coast Tyre Recycling
+                    </h3>
+                    <ul class="contact-list">
+						<li>
+                            <span class="cLabel">Address:</span>
+							<div class="cContent">
+								85 West Dapto Road <br/>
+								Kembla Grange 2526
+							</div>
+						</li>
                         <li>
-                            <span class="lLabel">Email:</span>
-                            <div class="lInput"><input type="text" id="Email-req-email" name="Email-req-email" value="<?php if(isset($_POST['Email-req-email'])) echo htmlentities($_POST['Email-req-email']);?>" maxlength="35" /></div>
+                            <span class="cLabel">Phone:</span>
+                            <div class="cContent">02 4262 1111</div>
                         </li>
                         <li>
-                            <span class="lLabel">Password:</span>
-                            <div class="lInput"><input type="password" id="password" name="Password-req" value="" maxlength="35" /></div>
-                        </li>
+                            <span class="cLabel">Facsimile:</span>
+                            <div class="cContent">00 0000 0000</div>
+                        </li>                      
                         <li>
-                            <span class="forgot"><a href = "forgotpassword.php">Forgot Password?</a></span>
-                            <span class="loginButton" ><button type="submit" name="submit" value="Login">Login</button></span>
-                        </li>					
-                    </ul>	
-                    </form>												
-					<?php 						
-					if(isset($messages)){											
-						foreach($messages as $key => $value){						
-							echo '<font color="red">' . $value . '</font>';				
-							echo '</br>';						
-							}					
-							}	
-							//home/southc79/public_html	
-					?>										
+                            <span class="cLabel">Email:</span>
+                            <div class="cContent">southcoastrecycling@gmail.com</div>
+                        </li>
+                    </ul>
+                    <form action="#">
+                        <ul class = "contactForm">
+                            <li>Name: <span class="mandatory">*</span></li>
+                            <li><input type="text" name="name" value=""></li>
+                            <li>Email:</li>
+                            <li><input type="text" name="email" value=""></li>
+                            <li>Phone: <span class="mandatory">*</span></li>
+                            <li><input type="text" name="phone" value=""></li>
+                            <li>Message: <span class="mandatory">*</span></li>
+                            <li><textarea rows="4" cols="40" name="message" form="#"></textarea></li>
+                            <li><span class="mandatory size12">* indicates mandatory field.</span></li>
+                            <li><input type="submit" value="Submit"></li>
+                        <ul>
+                    </form> 
+                    </div>
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>

@@ -1,13 +1,24 @@
-<?php
-session_start();
-$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
-include($WebsiteRoot . '/includes/validate.php');
-include($WebsiteRoot . '/includes/userLogin.php');
+<?php 
+	session_start();
+	
+	require_once("includes/noCache.php");
+	require_once("includes/dataConnect.php");
+
+	//get user detail to get booking values
+
+	$session = $_SESSION['username'];
+	$userName = "SELECT user_ID FROM user_details where email = '". $session."'";
+	//$userName = stripcslashes($userName);
+	$rs = mysqli_query($conn, $userName);
+	$value = mysqli_fetch_assoc($rs);
+	$userID = "{$value['user_ID']}";
+	
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login - South Coast Tyre Recycling</title>
+    <title>Booking - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -19,6 +30,19 @@ include($WebsiteRoot . '/includes/userLogin.php');
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
 </head>
 <body>
+
+
+<?php
+	
+	//use userID to get all bookings with the same user_ID
+	
+	$sql = "SELECT booking_ID, business_name, address, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking WHERE user_ID = '". $userID."'";
+	$result = mysqli_query($conn, $sql);
+	
+	?>
+
+
+
     <div class="container-fluid text-center">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
@@ -29,7 +53,7 @@ include($WebsiteRoot . '/includes/userLogin.php');
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
+                        <li>
                             <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
                         <li>
@@ -96,40 +120,75 @@ include($WebsiteRoot . '/includes/userLogin.php');
                         <div class="item"><img alt="Image2" src="img/02.jpg"></div>
                         <div class="item"><img alt="Image3" src="img/03.jpg"></div>
                     </div>
-                    <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class= "sr-only">Next</span></a>
+                    <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class=                   "sr-only">Next</span></a>
                 </div>
-                <div class="mainContent">
-                    <h1 class="login">Login</h1>
-                    <form id="form1" onsubmit ="" action="" method="post">
-                    <ul class="loginForm">
-                        <li>
-                            <span class="lLabel">Email:</span>
-                            <div class="lInput"><input type="text" id="Email-req-email" name="Email-req-email" value="<?php if(isset($_POST['Email-req-email'])) echo htmlentities($_POST['Email-req-email']);?>" maxlength="35" /></div>
-                        </li>
-                        <li>
-                            <span class="lLabel">Password:</span>
-                            <div class="lInput"><input type="password" id="password" name="Password-req" value="" maxlength="35" /></div>
-                        </li>
-                        <li>
-                            <span class="forgot"><a href = "forgotpassword.php">Forgot Password?</a></span>
-                            <span class="loginButton" ><button type="submit" name="submit" value="Login">Login</button></span>
-                        </li>					
-                    </ul>	
-                    </form>												
-					<?php 						
-					if(isset($messages)){											
-						foreach($messages as $key => $value){						
-							echo '<font color="red">' . $value . '</font>';				
-							echo '</br>';						
-							}					
+                <div class="mainContent" >
+					<form id = "bookingView" method = "post" action = "" accept-charset='UTF-8' >
+					<h2>View Bookings</h2>
+									<table>
+						<thead>
+							<tr>
+								<th> Booking ID </th>
+								<th> Company Name </th>
+								<th> Address </th>
+								<th> Postcode </th>
+								<th> State </th>
+								<th> Email </th>
+								<th> Contact Name </th>
+								<th> Contact Number </th>
+								<th> Type </th>
+								<th> Quantity</th>
+								<th> Date </th>
+							</tr>
+							</thead>
+						
+						
+						<tbody>
+						<?php
+						if ($result->num_rows > 0){
+							while ($row = mysqli_fetch_assoc($result))
+							{
+						echo "<form action=deleteBooking.php method=post>";
+						echo "<tr>";
+						echo		"<td>{$row['booking_ID']}</td>";
+						echo		"<td>{$row['business_name']}</td>";
+						echo		"<td>{$row['address']}</td>";
+						echo		"<td>{$row['postcode']}</td>";
+						echo		"<td>{$row['state']}</td>";
+						echo		"<td>{$row['email']}</td>";
+						echo		"<td>{$row['contact_name']}</td>";
+						echo		"<td>{$row['contact_number']}</td>";
+						echo		"<td>{$row['type']}</td>";
+						echo		"<td>{$row['quantity']}</td>";
+						echo		"<td>{$row['ready_date']}</td>";
+						echo 	'<td> <a href = "deleteBooking.php?bookingID=' .$row['booking_ID']. '"> Delete </a></td>';
+						echo "</tr>";
+						echo "</form> \n";
 							}	
-							//home/southc79/public_html	
-					?>										
+						} else {
+							echo "0 records found";
+						}
+	
+					$conn->close(); 
+
+					?>
+						</tbody>
+					</table>
+
+					</form>
+					<form action = "booking.php">
+						<input type = "submit" name ="view" value ="Return to Booking" />
+					</form>
                 </div>
+                <div class="col-xs-1 col-md-2 sidenav"></div>
             </div>
-            <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
+			
+			
         </div>
-    </div>
-    <nav class="navbar navbar-footer navbar-inverse"></nav>
+	</div>
+	<nav class="navbar navbar-footer navbar-inverse">
+	</nav>
+	
+
 </body>
 </html>

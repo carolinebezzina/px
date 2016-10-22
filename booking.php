@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,15 +12,22 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
+	<script src="gen_validatorv4.js" type="text/javascript"></script>
 </head>
 <body>
+
+
+
+
+
+
     <div class="container-fluid text-center">
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.html">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -33,19 +41,19 @@
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">
                         <li>
-                            <a href="index.html">Home</a>
+                            <a href="index.php">Home</a>
                         </li>
                         <li>
-                            <a href="services.html">Services</a>
+                            <a href="services.php">Services</a>
                         </li>
                         <li>
-                            <a href="why.html">Why?</a>
+                            <a href="why.php">Why?</a>
                         </li>
                         <li>
-                            <a href="about.html">About Us</a>
+                            <a href="about.php">About Us</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact</a>
+                            <a href="contact.php">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -60,19 +68,19 @@
                             <div class="hidden-xs" id="mainNavbar">
                                 <ul class="nav nav-tabs navbar-right">
                                     <li>
-                                        <a href="index.html">Home</a>
+                                        <a href="index.php">Home</a>
                                     </li>
                                     <li>
-                                        <a href="services.html">Services</a>
+                                        <a href="services.php">Services</a>
                                     </li>
                                     <li>
-                                        <a href="why.html">Why?</a>
+                                        <a href="why.php">Why?</a>
                                     </li>
                                     <li>
-                                        <a href="about.html">About Us</a>
+                                        <a href="about.php">About Us</a>
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="contact.php">Contact</a>
                                     </li>
                                 </ul>
                             </div>
@@ -92,9 +100,9 @@
                     </div>
                     <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class=                   "sr-only">Next</span></a>
                 </div>
-                <div class="mainContent">
+                <div class="mainContent" >
 					<h2>Booking</h2>
-			         <form name ="bookings" id="bookings" onSubmit="" method="post" action="newBooking.php" accept-charset="UTF-8">
+			         <form name ="bookings" id="bookings" onSubmit="" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" accept-charset="UTF-8">
 						<ul class = "booking">
 							<li>
 								<span class="labels">Company Name:</span>
@@ -109,7 +117,7 @@
 									<div class="left-column">
 										<input type="text" name="address" id="address" value ="" maxlength="50" /> 
 										<br/><label for="address">Address</label>
-										<br/><input type="text" name="postcode" id="postcode" value ="" maxlength="4" /> 
+										<br/><input type="text" name="postcode" id="postcode" value ="" maxlength="4" size ="12" /> 
 										<br/><label for="postcode">Postcode</label>
 									</div>
 									<div class="right-column">
@@ -121,7 +129,7 @@
 							<li>
 								<span class="labels">Email Address:</span>
 								<div class="inputs">
-									<input type="email" name="email" id="eMail" value ="" maxlength="50" />
+									<input type="email" name="email" id="email" value ="" maxlength="50" />
 									<label class="visible-xs" for="email">Email Address</label> 
 								</div>
 							</li>
@@ -135,7 +143,7 @@
 							<li>
 								<span class="labels">Contact Number:</span>
 								<div class="inputs">
-									<input type="text" name="phone" id="contactNumber" value ="" maxlength="12" />
+									<input type="text" name="phone" id="phone" value ="" maxlength="12" />
 									<label class="visible-xs" for="phone">Contact Number</label>
 								</div>	
 							</li>
@@ -143,17 +151,17 @@
 								<span class="labels">Tyres:</span>
 								<div class="inputs">
 									<div class="left-column">
-										<select id = "type">
+										<select name="type" id = "type">
 										<option name="selectOne" value="Select One" >--------Select--------</option>
 										<option name="truck" value="Truck Tyres" >Truck Tyres</option>
 										<option name="tractor" value="Tractor Tyres" >Tractor Tyres</option>
 										<option name="motorbike" value="Motorbike Tyres" >Motorbike Tyres</option>
-										<option name="car" value="car Tyres">Car Tyres</option>
+										<option name="car" value="Car Tyres">Car Tyres</option>
 										</select>
 										<br/><label for="type">Type</label> 
 									</div>
 									<div class="right-column">
-										<input type="text" name="tyreQuantity" id="quantity" value ="" maxlength="50"/>
+										<input type="text" name="quantity" id="quantity" value ="" maxlength="50"/>
 										<br/><label for="tyreQuantity">Quantity</label> 
 									</div>
 								</div>
@@ -161,7 +169,7 @@
 							<li>
 								<span class="labels">Preferred Pick-Up Date:</span>
 								<div class="inputs">
-									<input type = "date" name = "date" id="readydate" />
+									<input type = "date" name = "readydate" id="readydate" />
 									<label class="visible-xs" for="readydate">Preferred Pick-Up Date</label> 
 								</div>
 							</li>
@@ -170,15 +178,27 @@
 								<input type="reset" value="Reset" size />	 
 							</li>		
 						</ul>
-					</form>		
+					</form>
+
+					
+					<form action = "viewBooking.php">
+					<input type = "submit" name ="view" value ="View Bookings" />
+					</form>
+					<form action = "listBooking.php">
+					<input type = "submit" name ="view" value ="List Bookings - test" />
+					</form>
+					
                 </div>
                 <div class="col-xs-1 col-md-2 sidenav"></div>
             </div>
+					
+			
         </div>
 	</div>
 	<nav class="navbar navbar-footer navbar-inverse">
 	</nav>
 	
+
 	
 	<script type="text/javascript">
 	var frmvalidator = new Validator("bookings");
@@ -193,13 +213,13 @@
 	//validate state
 	frmvalidator.addValidation("state", "req", "Please enter a state");
 	//validate email
-	frmvalidator.addValidation("eMail", "req", "Please enter an email");
-	frmvalidator.addValidation("eMail", "email", "Incorrect form of email - example@example.example");
+	frmvalidator.addValidation("email", "req", "Please enter an email");
+	frmvalidator.addValidation("email", "email", "Incorrect form of email - example@example.example");
 	//validate contact name
 	frmvalidator.addValidation("contactName", "req", "Please enter a person to contact");
 	//validate contact number
-	frmvalidator.addValidation("contactNumber", "req", "Please enter a contact number");
-	frmvalidator.addValidation("contactNumber", "numeric", "Incorrect characters within in phone number");
+	frmvalidator.addValidation("phone", "req", "Please enter a contact number");
+	frmvalidator.addValidation("phone", "numeric", "Incorrect characters within in phone number");
 	//validate type of tyres	
 	frmvalidator.addValidation("type","dontselect=Select One","Please select a type of tyre");
 	//validate quantity
@@ -207,11 +227,12 @@
 	frmvalidator.addValidation("quantity","numeric", "Tyre Quantity must be a number");
 	//validate pick up date
 	frmvalidator.addValidation("readydate","req","Please enter your preferred date");
-	
-
 	</script>
 	
-	
+	<?php 
+						$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+						include_once($WebsiteRoot . '/newBooking.php');
+						?>
 	
 </body>
 </html>
