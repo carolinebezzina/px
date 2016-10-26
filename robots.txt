@@ -1,7 +1,11 @@
 User-agent: *
-Disallow: /
 Allow: /index.php
 Allow: /services.php
 Allow: /why.php
 Allow: /about.php
 Allow: /contact.php
+Allow: /sitemap.htm
+Allow: /sitemap.xml
+Sitemap: http://www.southcoasttyrerecycling.com.au/sitemap.xml
+Disallow: /
+Crawl-delay: 10

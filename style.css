@@ -299,3 +299,16 @@ hr {
     	text-align: center;
     }
 }
+/*Media Query for tablets*/
+@media (min-width: 768px) and (max-width: 1023px)
+{
+	.labels {
+		width: 100%;
+	}
+	.inputs {
+		width: 100%;
+	}
+	.left-column, .right-column {
+		width: 49%;
+	}
+}

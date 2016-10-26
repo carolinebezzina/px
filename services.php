@@ -28,12 +28,46 @@
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
+                    <!-- If not logged in -->
+                    <?php if ($_SESSION["customer"] == false && $_SESSION["user"] == false && $_SESSION["admin"] == false) {echo "
                         <li>
-                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
                         </li>
                         <li>
-                            <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
+                            <a href='registration.php'><span class='glyphicon glyphicon-user'></span> Register</a>
                         </li>
+                    ";}?>
+                    <!-- If logged in as customer -->
+                    <?php if ($_SESSION["customer"] == true) {echo "
+
+                    ";}?>
+                    <!-- If logged in as admin -->
+                    <?php if ($_SESSION["admin"] == true) {echo "
+                        <li>
+                            <a href='editUser.php'>Edit Users</a>
+                        </li>
+                        <li>
+                            <a href='editPage.php'>Edit Pages</a>
+                        </li>
+                    ";}?>
+                    <!-- If logged in as employee or admin -->
+                    <?php if ($_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+                        <li>
+                            <a href='jobSheet.php'>Job Sheets</a>
+                        </li>
+                    ";}?>
+                    <!-- If logged in -->
+                    <?php if ($_SESSION["customer"] == true || $_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+                        <li>
+                            <a href='booking.php'>Bookings</a>
+                        </li>
+                        <li>
+                            <a href='accounts.php'><span class='glyphicon glyphicon-user'></span> Account</a>
+                        </li>
+                        <li>
+                            <a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
+                        </li>
+                    ";}?>
                     </ul>
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">

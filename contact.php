@@ -1,3 +1,11 @@
+<?php 
+
+	session_start();
+    $WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+    include($WebsiteRoot . '/includes/validate.php');   
+    include($WebsiteRoot . '/includes/contactMail.php');
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,12 +31,46 @@
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
+                    <!-- If not logged in -->
+                    <?php if ($_SESSION["customer"] == false && $_SESSION["user"] == false && $_SESSION["admin"] == false) {echo "
                         <li>
-                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
                         </li>
                         <li>
-                            <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
+                            <a href='registration.php'><span class='glyphicon glyphicon-user'></span> Register</a>
                         </li>
+                    ";}?>
+                    <!-- If logged in as customer -->
+                    <?php if ($_SESSION["customer"] == true) {echo "
+
+                    ";}?>
+                    <!-- If logged in as admin -->
+                    <?php if ($_SESSION["admin"] == true) {echo "
+                        <li>
+                            <a href='editUser.php'>Edit Users</a>
+                        </li>
+                        <li>
+                            <a href='editPage.php'>Edit Pages</a>
+                        </li>
+                    ";}?>
+                    <!-- If logged in as employee or admin -->
+                    <?php if ($_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+                        <li>
+                            <a href='jobSheet.php'>Job Sheets</a>
+                        </li>
+                    ";}?>
+                    <!-- If logged in -->
+                    <?php if ($_SESSION["customer"] == true || $_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+                        <li>
+                            <a href='booking.php'>Bookings</a>
+                        </li>
+                        <li>
+                            <a href='accounts.php'><span class='glyphicon glyphicon-user'></span> Account</a>
+                        </li>
+                        <li>
+                            <a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
+                        </li>
+                    ";}?>
                     </ul>
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">
@@ -118,21 +160,28 @@
                             <div class="cContent">southcoastrecycling@gmail.com</div>
                         </li>
                     </ul>
-                    <form action="#">
+                    <form name = "contact" id="contact" method="POST" action="" accept-charset='UTF-8'>
                         <ul class = "contactForm">
                             <li>Name: <span class="mandatory">*</span></li>
-                            <li><input type="text" name="name" value=""></li>
+                            <li><input type="text" name="Name-req-alpha" id="Name-req-alpha" value="<?php if(isset($_POST['Name-req-alpha'])) echo htmlentities($_POST['Name-req-alpha']);?>"></li>
                             <li>Email:</li>
-                            <li><input type="text" name="email" value=""></li>
+                            <li><input type="text" name="Email-email" id="Email-email" maxlength="50" value="<?php if(isset($_POST['Email-email'])) echo htmlentities($_POST['Email-email']);?>" /></li>
                             <li>Phone: <span class="mandatory">*</span></li>
-                            <li><input type="text" name="phone" value=""></li>
+                            <li><input type="text" name="Phone-req-num" id="Phone-req-num" maxlength="12" value="<?php if(isset($_POST['Phone-req-num'])) echo htmlentities($_POST['Phone-req-num']);?>"/></li>
                             <li>Message: <span class="mandatory">*</span></li>
-                            <li><textarea rows="4" cols="40" name="message" form="#"></textarea></li>
+                            <li><textarea rows="4" cols="40" name="Message-req-alphachar" id="Message-req-alphachar"  value="<?php if(isset($_POST['Message-req-alphachar'])) echo htmlentities($_POST['Message-req-alphachar']);?>"></textarea></li>
                             <li><span class="mandatory size12">* indicates mandatory field.</span></li>
-                            <li><input type="submit" value="Submit"></li>
-                        <ul>
-                    </form> 
-                    </div>
+                            <li><input type="submit" id="submit" name="submit" value="Submit"></li>
+                        </ul>
+                    </form>
+                    <?php 
+                    if(isset($messages)){
+                        foreach($messages as $key => $value){
+                            echo '<span style="color:red;">' . $value . '</span>';
+                            echo '<br/>';
+                        }
+                    }
+                    ?> 
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>

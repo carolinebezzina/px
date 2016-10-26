@@ -129,14 +129,6 @@
                 </div>
                 <div class="mainContent">
 					<h1> Customer Registration</h1>
-					<?php 
-					if(isset($messages)){
-						foreach($messages as $key => $value){
-							echo '<font color="red">' . $value . '</font>';
-							echo '</br>';
-						}
-					}
-					?>
 			        <form name="registration" id="registration" onSubmit="" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>"  accept-charset="UTF-8">
 						
 						<input type = "hidden" name ="submitted" id="submitted" value="1"/>
@@ -221,7 +213,15 @@
                                 <input type="reset" value="Reset" size ="6"/>
                             </li>
 						</ul>				
-					</form>											
+					</form>
+					<?php 
+					if(isset($messages)){
+						foreach($messages as $key => $value){
+							echo '<font color="red">' . $value . '</font>';
+							echo '</br>';
+						}
+					}
+					?>
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
