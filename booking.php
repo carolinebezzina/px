@@ -406,6 +406,6 @@ session_start();
 	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
 	include_once($WebsiteRoot . '/newBooking.php');
 	?>
-	
+    <footer></footer>  	
 </body>
 </html>
