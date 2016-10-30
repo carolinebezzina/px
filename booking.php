@@ -370,11 +370,7 @@ session_start();
 			
         </div>
 	</div>
-	<nav class="navbar navbar-footer navbar-inverse">
-	</nav>
-	
 
-	
 	<script type="text/javascript">
 	var frmvalidator = new Validator("bookings");
 	//validate company name

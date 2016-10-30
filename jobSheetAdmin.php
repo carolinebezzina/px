@@ -311,10 +311,6 @@
 			
         </div>
 	</div>
-	<nav class="navbar navbar-footer navbar-inverse">
-	</nav>
-	
 
-	
 </body>
 </html>

@@ -484,6 +484,6 @@
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
         </div>
     </div>
-    <nav class="navbar navbar-footer navbar-inverse"></nav>
+    
 </body>
 </html>
