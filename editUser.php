@@ -256,10 +256,10 @@
 					<form name = "fillform" id="fillform" method="POST" action="includes\editUserFormSQL.php">
 					<ul class="users">
 							<li>
-								<span class = "labels">User List::</span> 
+								<span class = "labels">User List:</span> 
 								<div class="inputs">								
 									<div class="left-column">
-										<select class="form-control" name='user'>						
+										<select class="form-control" name='user' size="5">						
 											<?php
 												
 											while ($row = mysqli_fetch_array($rs)) {
@@ -276,7 +276,6 @@
 							</li>
 					</ul>						
 					</form>
-					
 			        <form name="accounts"id="accounts" method="post" onsubmit="return confirm('Are you sure you want to make these changes?');" action="" accept-charset="UTF-8">
 						<ul class="users">
 							<li>
@@ -288,6 +287,7 @@
 									
 								</div>				
 							</li>
+							<hr />
 							<li>
 								<input type = "hidden" name ="submitted" id="submitted" value="1"/>	
 								<span class = "labels">Full Name:</span>
@@ -334,7 +334,7 @@
 										<input class="form-control" type = "text" name = "Address-req-alphanum" id="Address-req-alphanum" value ="<?php if(!empty($_SESSION['address'])){echo $_SESSION['address'];} ?>" maxlength="80"/>
 										<label for="address">Address</label> 
 										<br/>
-										<select class="form-control" name="State-req" id="State-req" >										
+										<select class="form-control" name="State-req" id="State-req">										
                                             <option name="selectreq" value="selectreq" >-------------Select-------------</option>	
 											<option name="act" value="Australian Capital Territory" <?php echo $ACT; ?> >Australian Capital Territory</option>   
 											<option name="nsw" value="New South Wales"<?php echo $NSW; ?>>New South Wales</option>    
