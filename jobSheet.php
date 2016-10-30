@@ -34,7 +34,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Job Sheets- South Coast Tyre Recycling</title>
+    <title>Job Sheets - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">

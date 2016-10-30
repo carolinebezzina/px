@@ -309,14 +309,14 @@
 								</div>
 							</li>
 							<li>
-								<span class="labels">EMail Address:</span>
+								<span class="labels">Email Address:</span>
 								<div class="inputs">
                                     <div class="left-column">
 										<input class="form-control" type = "email" name = "EMail-req-email" id="EMail-req-email" value ="<?php if(!empty($_SESSION['emailTwo'])){echo $_SESSION['emailTwo'];} ?>" maxlength="64"/>
 										<label for="EMail-req-email" class="visible-xs">EMail-req-email Address</label> 
 									</div>
 									<div class="right-column">
-                                        <label>Note: EMail is also your username!</label>
+                                        <label>Note: Email is also your username!</label>
                                     </div>
                                 </div>
 							</li>
