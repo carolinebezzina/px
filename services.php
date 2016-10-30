@@ -24,7 +24,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs hidden-sm" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -140,13 +140,15 @@
                     ?>
 
                     <div class="columns">
-                        <?php
-                                    echo $row["column_left"];
-                                    echo $row["column_middle"];
-                                    echo $row["column_right"];
-                                }
-                            }
-                        ?>
+                        <div class="first-column col-xs-12 col-md-4">
+                            <?php echo $row["column_left"]; ?>
+                        </div>
+                        <div class="second-column col-xs-12 col-md-4">
+                            <?php echo $row["column_middle"]; ?>
+                        </div>
+                        <div class="third-column col-xs-12 col-md-4">
+                            <?php echo $row["column_right"]; }} ?>
+                        </div>
                     </div>
                 </div>
             </div>

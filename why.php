@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Why Recycle? - South Coast Tyre Recycling</title>
+    <title>Why Recycle Tyres? - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -24,7 +24,7 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs hidden-sm" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
@@ -132,7 +132,7 @@
                     <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class= "sr-only">Next</span></a>
                 </div>
                 <div class="mainContent">
-                    <h1>Why Recycle?</h1>
+                    <h1>Why Recycle Tyres?</h1>
                     <?php
                         if (mysqli_num_rows($rs_home) > 0) {
                             while ($row = mysqli_fetch_assoc($rs_why)) {
@@ -140,13 +140,15 @@
                     ?>
 
                     <div class="columns">
-                        <?php
-                                    echo $row["column_left"];
-                                    echo $row["column_middle"];
-                                    echo $row["column_right"];
-                                }
-                            }
-                        ?>
+                        <div class="first-column col-xs-12 col-md-4">
+                            <?php echo $row["column_left"]; ?>
+                        </div>
+                        <div class="second-column col-xs-12 col-md-4">
+                            <?php echo $row["column_middle"]; ?>
+                        </div>
+                        <div class="third-column col-xs-12 col-md-4">
+                            <?php echo $row["column_right"]; }} ?>
+                        </div>
                     </div>
                 </div>
             </div>

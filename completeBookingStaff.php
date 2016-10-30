@@ -14,15 +14,15 @@
 		$bookingID = $_GET['bookingID'];
 		$sql = "UPDATE booking SET booking_statusID = 4 WHERE booking_ID = $bookingID";
 		$activeQuery = mysqli_query($conn, $sql);
-		
-		header("Location: listBooking.php");
+
+		header("Location: jobSheet.php");
 	}
 	else
 	{
-		header("Location: listBooking.php");
+		header("Location: jobSheet.php");
 	}
 	
-	//use this to change the booking from 'Active'/'Pending' to Complete
+	
 	
 	$conn->close();
 	

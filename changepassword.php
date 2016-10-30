@@ -2,112 +2,14 @@
 
 	session_start();
 	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
-	include($WebsiteRoot . '/includes/setPassword.php');
-	
-	function error() {
-    echo '
-		<ul class="accounts"> 
-			<li>Invalid Token! Resend token to your email.</li>
-		</ul>
-		';		
-
-	}
-	
-	function resetForm(){
-	echo '
-		<form id="form1" onsubmit ="" action="" method="post">
-					<ul class = "accounts">					
-						<li>
-						<span class="labels">Enter your new password:</span>
-						
-						<div class="inputs">
-						
-							<div class="left-column">
-
-									<input type = "password" name ="Password-req" id="password" maxlength="18" />
-
-									<br/><label for="address">New Password</label>
-
-								
-							</div>
-							<div class="right-column">
-								
-									<input type = "password" name = "Confirm_Password-req" id="confirm_password" onkeyup="checkPass(); return false;" maxlength="18"/>
-
-									<br/><label for="address">Confirm Password</label>
-									<br/>
-									<span id="confirmMessage" class="confirmMessage"></span>
-
-							</div>
-						</div>		
-						</li>
-						<li>
-						<span class="labels"></span>
-						
-						<div class="inputs">
-						
-							<div class="left-column">
-
-						
-							<button class ="btn btn-primary"type="submit" name="submit" id="submit" value="Send">Confirm</button>
-								
-							</div>
-							<div class="right-column">
-								
-							
-
-							</div>
-						</div>		
-						</li>
-					</ul>
-					</form>
-		
-		';
-		
-	}
-	
-	
-	function resetPassword() {
-		if(isset($_GET['token'])){
-					$_SESSION['token'] = $_GET['token'];
-				}
-				if(isset($_GET['email'])){
-					$_SESSION['email'] = $_GET['email'];
-				}
-				
-				if(isset($_SESSION['token'])){
-					$email = $_SESSION['email'];
-					$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
-					require_once($WebsiteRoot . '/includes/dataConnect.php');
-					
-					$sql = "SELECT email, token FROM reset_password WHERE email = '$email' AND date_created >= now() - INTERVAL 1 DAY";
-					$rs = mysqli_query($conn, $sql);
-								
-					if(mysqli_num_rows($rs)){         
-						
-						$row = mysqli_fetch_row($rs);	
-						$checkToken = $row[1];
-						
-						if(password_verify($_SESSION['token'], $row[1])){
-							$_SESSION['reset'] = true;
-							resetForm();					
-						}else{
-							error();
-						}
-					}else{
-						error();
-					}
-				}else{				
-					error();	
-				}	
-	}
-
+	require_once($WebsiteRoot . '/includes/loggedIn.php');
+	$_SESSION['email'] = $_SESSION['username'];
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Reset Password</title>
+    <title>Change Password</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -115,7 +17,7 @@
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css?version=51" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
 	<script type = "text/javascript">
 		function checkPass()
@@ -162,12 +64,87 @@
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                        </li>
+
+                    <!-- If not logged in -->
+
+                    <?php if ($_SESSION["customer"] == false && $_SESSION["user"] == false && $_SESSION["admin"] == false) {echo "
+
                         <li>
-                            <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
+
+                            <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
+
                         </li>
+
+                        <li>
+
+                            <a href='registration.php'><span class='glyphicon glyphicon-user'></span> Register</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in as customer -->
+
+                    <?php if ($_SESSION["customer"] == true) {echo "
+
+
+
+                    ";}?>
+
+                    <!-- If logged in as admin -->
+
+                    <?php if ($_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='editUser.php'>Edit Users</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='editPage.php'>Edit Pages</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in as employee or admin -->
+
+                    <?php if ($_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='jobSheet.php'>Job Sheets</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in -->
+
+                    <?php if ($_SESSION["customer"] == true || $_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='booking.php'>Bookings</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='accounts.php'><span class='glyphicon glyphicon-user'></span> Account</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
+
+                        </li>
+
+                    ";}?>
+
                     </ul>
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">
@@ -233,10 +210,40 @@
                 </div>
                 <div class="mainContent">			
 				
-                    <h1 class="login">Reset Password</h1>				
-				    <?php
-							resetPassword();
-					?>					
+                    <h1 class="login">Change Password</h1>
+					
+					<form id="form1" onsubmit ="" action="includes/setPassword.php" method="post">
+					<ul class = "accounts">					
+						<li>
+							<span class="labels">Enter your new password:</span>
+							
+							<div class="inputs">
+							
+								<div class="left-column">
+
+										<input class="form-control" type = "password" name ="Password-req" id="password" maxlength="18"  onkeyup="checkPass(); return false;" />
+
+										<br/><label for="address">New Password</label>
+
+									
+								</div>
+								<div class="right-column">
+									
+										<input class="form-control" type = "password" name = "Confirm_Password-req" id="confirm_password" maxlength="18" onkeyup="checkPass(); return false;"/>
+										<br/><label for="address">Confirm Password</label>
+										<br/>
+										<span id="confirmMessage" class="confirmMessage"></span>	
+										<br/>
+										<button class="btn btn-primary" type="submit" name="submit" id="submit" value="Send">Confirm</button>
+
+								</div>
+							</div>		
+						</li>							 
+							
+					</ul>
+						
+					</form>		
+								
                 </div>
             </div>
             <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>

@@ -1,8 +1,21 @@
 <?php 
+
 	session_start();
+	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
 	
-	require_once("includes/noCache.php");
-	require_once("includes/dataConnect.php");
+	require_once($WebsiteRoot. '/includes/noCache.php');
+	require_once($WebsiteRoot. '/includes/dataConnect.php');	
+    require_once($WebsiteRoot . '/includes/loggedIn.php');
+	
+	    if (($_SESSION["customer"] == false)  && ($_SESSION["admin"] == false) && ($_SESSION["user"] == false) )
+
+    {
+
+        header("Location: http://www.southcoasttyrerecycling.com.au");
+
+        exit;
+
+    }
 
 	//get user detail to get booking values
 
@@ -18,7 +31,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Booking - South Coast Tyre Recycling</title>
+    <title>View My Bookings - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -28,6 +41,19 @@
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
+	
+	<style> 
+	 td {text-align: center;
+			border: 1px solid #ddd;
+			padding: 8px;}
+	 th {text-align: center;
+			border: 1px solid #ddd;
+			padding: 8px;}
+			table {align:"right";
+			width: 100%;}
+			
+	 tr:hover {background-color: #ddd;}
+	</style>
 </head>
 <body>
 
@@ -36,7 +62,7 @@
 	
 	//use userID to get all bookings with the same user_ID
 	
-	$sql = "SELECT booking_ID, business_name, address, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking WHERE user_ID = '". $userID."'";
+	$sql = "SELECT booking_ID, business_name, address, suburb, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking WHERE user_ID = '". $userID."'";
 	$result = mysqli_query($conn, $sql);
 	
 	?>
@@ -49,16 +75,91 @@
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs hidden-sm" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
+
+                    <!-- If not logged in -->
+
+                    <?php if ($_SESSION["customer"] == false && $_SESSION["user"] == false && $_SESSION["admin"] == false) {echo "
+
                         <li>
-                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+
+                            <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
+
                         </li>
+
                         <li>
-                            <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
+
+                            <a href='registration.php'><span class='glyphicon glyphicon-user'></span> Register</a>
+
                         </li>
+
+                    ";}?>
+
+                    <!-- If logged in as customer -->
+
+                    <?php if ($_SESSION["customer"] == true) {echo "
+
+
+
+                    ";}?>
+
+                    <!-- If logged in as admin -->
+
+                    <?php if ($_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='editUser.php'>Edit Users</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='editPage.php'>Edit Pages</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in as employee or admin -->
+
+                    <?php if ($_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='jobSheet.php'>Job Sheets</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in -->
+
+                    <?php if ($_SESSION["customer"] == true || $_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+
+                        <li class='active'>
+
+                            <a href='booking.php'>Bookings</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='accounts.php'><span class='glyphicon glyphicon-user'></span> Account</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
+
+                        </li>
+
+                    ";}?>
+
                     </ul>
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">
@@ -82,8 +183,8 @@
             </div>
         </nav>
         <div class="row content">
-            <div class="col-xs-0 col-sm-1 col-lg-2 sidenav"></div>
-            <div class="col-xs-12 col-sm-10 col-lg-8 text-left">
+            <div class="col-xs-0 col-sm-1 col-lg-1 sidenav"></div>
+            <div class="col-xs-12 col-sm-10 col-lg-10 text-left">
                 <header>
                     <div class="navContainer">
                         <nav class="navbar navbar-default">
@@ -109,36 +210,21 @@
                         </nav>
                     </div>
                 </header>
-                <div class="carousel slide" data-ride="carousel" id="myCarousel">
-                    <ol class="carousel-indicators">
-                        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-                        <li data-slide-to="1" data-target="#myCarousel"></li>
-                        <li data-slide-to="2" data-target="#myCarousel"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active"><img alt="Image1" src="img/01.jpg"></div>
-                        <div class="item"><img alt="Image2" src="img/02.jpg"></div>
-                        <div class="item"><img alt="Image3" src="img/03.jpg"></div>
-                    </div>
-                    <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class=                   "sr-only">Next</span></a>
-                </div>
                 <div class="mainContent" >
 					<form id = "bookingView" method = "post" action = "" accept-charset='UTF-8' >
-					<h2>View Bookings</h2>
+					<h1>View My Bookings</h1>
 									<table>
 						<thead>
-							<tr>
-								<th> Booking ID </th>
-								<th> Company Name </th>
+							<tr style="background-color:#ddd;">
+								<th> Job No. </th>
+								<th> Company</th>
 								<th> Address </th>
+								<th> Suburb </th>
 								<th> Postcode </th>
-								<th> State </th>
-								<th> Email </th>
-								<th> Contact Name </th>
-								<th> Contact Number </th>
 								<th> Type </th>
 								<th> Quantity</th>
 								<th> Date </th>
+								<th> Remove </th>
 							</tr>
 							</thead>
 						
@@ -153,11 +239,9 @@
 						echo		"<td>{$row['booking_ID']}</td>";
 						echo		"<td>{$row['business_name']}</td>";
 						echo		"<td>{$row['address']}</td>";
+						echo		"<td>{$row['suburb']}</td>";
 						echo		"<td>{$row['postcode']}</td>";
-						echo		"<td>{$row['state']}</td>";
-						echo		"<td>{$row['email']}</td>";
-						echo		"<td>{$row['contact_name']}</td>";
-						echo		"<td>{$row['contact_number']}</td>";
+					//	echo		"<td>{$row['email']}</td>";
 						echo		"<td>{$row['type']}</td>";
 						echo		"<td>{$row['quantity']}</td>";
 						echo		"<td>{$row['ready_date']}</td>";
@@ -176,13 +260,16 @@
 					</table>
 
 					</form>
+					<br/>
+					
 					<form action = "booking.php">
-						<input type = "submit" name ="view" value ="Return to Booking" />
+						<input type = "submit" class="btn btn-primary" name ="view" value ="Return to Bookings" />
 					</form>
                 </div>
-                <div class="col-xs-1 col-md-2 sidenav"></div>
+                
             </div>
 			
+			<div class="col-xs-0 col-sm-1 col-lg-1 sidenav"></div>
 			
         </div>
 	</div>

@@ -10,10 +10,10 @@
 			$userTypeID = (int)$userType;
 			$fName = trim($_POST['First_Name-req-alpha']);
 			$lName = trim($_POST['Last_Name-req-alpha']);
-			$address = trim($_POST['Address-req-alphachar']);
+			$address = trim($_POST['Address-req-alphanum']);
 			$pcode = (int)trim($_POST['Postcode-req-num']);
 			$state = trim($_POST['State-req']);
-			$cName = trim($_POST['Company_Name-req-alphachar']);
+			$cName = trim($_POST['Company_Name-req-alphanum']);
 			$eMail = trim($_POST['Email-req-email']);
 			$phone = trim($_POST['Phone-req-num']);
 			$suburb = trim($_POST['Suburb-req-alpha']);
@@ -31,7 +31,8 @@
 				
 				if ($conn->query($sql) === TRUE) {
 					$_SESSION['username'] = $eMail;	
-					header("location:http://southcoasttyrerecycling.com.au/home.php");	
+					$_SESSION['customer'] = true;
+					header("location: accounts.php");	
 				} else {
 					echo "Error: " . $sql . "<br>" . $conn->error;
 				}

@@ -1,8 +1,11 @@
 <?php
 	session_start();
-	require_once("includes/noCache.php");
-	require_once("includes/dataConnect.php");
-
+	
+	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+	
+	require_once($WebsiteRoot. '/includes/noCache.php');
+	require_once($WebsiteRoot. '/includes/dataConnect.php');
+	require_once($WebsiteRoot . '/includes/loggedIn.php');
 
 
 	// get id value and use the id to delete from the bookings table 

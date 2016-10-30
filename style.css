@@ -37,6 +37,10 @@ header {
 .mainContent {
     margin: 5%;
 }
+.btn-primary {
+    background-color: #144b6f;
+    font-size: 18px;
+}
 @media screen and (max-device-width: 800px) {
     .mainContent {
         text-align: center;
@@ -49,16 +53,20 @@ h2,h3,h4 {
     margin: 0 auto;
 }
 .columns {
-    -webkit-columns: 100px 3;
-    -moz-columns: 100px 3;
-    columns: 100px 3;
-    -webkit-column-count: 3;
-    -moz-column-count: 3;
-    column-count: 3;
-    -webkit-column-gap: 100px;
-    -moz-column-gap: 100px;
-    column-gap: 100px;
-    padding-top: 10%;
+    clear: both;
+}
+.first-column, .second-column, .third-column{
+    padding-top: 20px;
+    border: none !important;
+}
+.first-column, .second-column {
+    padding-right: 30px;
+}
+.second-column, .third-column {
+    padding-left: 30px;
+}
+.form-control {
+    width: initial;
 }
 .navbar-default {
     border: none;
@@ -74,9 +82,9 @@ h2,h3,h4 {
     text-shadow: 2px 2px 5px #144b6f;
     color: #b7dbe1;
 }
-.col-sm-10,.col-lg-8 {
+.col-xs-12, .col-sm-10, .col-lg-8, .col-lg-10 {
     background-color: #fff;
-    font-size: 1.4em;
+    font-size: 18px;
     border: solid;
     border-width: 1px;
     border-top: none;
@@ -96,7 +104,7 @@ h2,h3,h4 {
 }
 .menu {
     float: right;
-    font-size: 1.2em;
+    font-size: 18px;
 }
 .row {
     background-color: #144b6f;
@@ -219,7 +227,7 @@ hr {
         display: inline-block;
     }
     .cLabel {
-        width: 15%;
+        min-width: 20%;
     }
     .left-column, .right-column {
         display: inline-block;

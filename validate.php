@@ -116,4 +116,15 @@ if(isset($_POST['submit'])){
 		
 	}
 }
+
+function errorMsg($messages){
+	
+	if(isset($messages)){											
+		foreach($messages as $key => $value){														
+			echo '<font color="red">' . $value . '</font>';							
+			echo '</br>';							
+		}						
+	}	
+	return;
+}
 ?>

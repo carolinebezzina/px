@@ -1,8 +1,17 @@
 <?php
-session_start();
-$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
-include($WebsiteRoot . '/includes/validate.php');
-include($WebsiteRoot . '/includes/userLogin.php');
+	session_start();
+	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
+	include($WebsiteRoot . '/includes/validate.php');
+	include($WebsiteRoot . '/includes/userLogin.php');
+	
+	function errorArray(){
+		if(isset($messages)){											
+			foreach($messages as $key => $value){						
+						echo '<font color="red">' . $value . '</font>';				
+						echo '</br>';						
+					}					
+				}	
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,16 +34,91 @@ include($WebsiteRoot . '/includes/userLogin.php');
                 <div class="navbar-header">
                     <button class="navbar-toggle" data-target="#loginNavbar"
                     data-toggle="collapse" type="button"><span class="icon-bar"></span> <span class="icon-bar"></span>
-                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
+                    <span class="icon-bar"></span></button> <a class="navbar-brand hidden-xs hidden-sm" href="index.php">South Coast Tyre Recycling</a><a class="navbar-brand visible-xs menu">Menu</a>
                 </div>
                 <div class="collapse navbar-collapse" id="loginNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active">
-                            <a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a>
-                        </li>
+
+                    <!-- If not logged in -->
+
+                    <?php if ($_SESSION["customer"] == false && $_SESSION["user"] == false && $_SESSION["admin"] == false) {echo "
+
                         <li>
-                            <a href="registration.php"><span class="glyphicon glyphicon-user"></span> Register</a>
+
+                            <a href='login.php'><span class='glyphicon glyphicon-log-in'></span> Login</a>
+
                         </li>
+
+                        <li>
+
+                            <a href='registration.php'><span class='glyphicon glyphicon-user'></span> Register</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in as customer -->
+
+                    <?php if ($_SESSION["customer"] == true) {echo "
+
+
+
+                    ";}?>
+
+                    <!-- If logged in as admin -->
+
+                    <?php if ($_SESSION["admin"] == true) {echo "
+
+                        <li class='active'>
+
+                            <a href='editUser.php'>Edit Users</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='editPage.php'>Edit Pages</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in as employee or admin -->
+
+                    <?php if ($_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='jobSheet.php'>Job Sheets</a>
+
+                        </li>
+
+                    ";}?>
+
+                    <!-- If logged in -->
+
+                    <?php if ($_SESSION["customer"] == true || $_SESSION["user"] == true || $_SESSION["admin"] == true) {echo "
+
+                        <li>
+
+                            <a href='booking.php'>Bookings</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='accounts.php'><span class='glyphicon glyphicon-user'></span> Account</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href='logout.php'><span class='glyphicon glyphicon-log-out'></span> Logout</a>
+
+                        </li>
+
+                    ";}?>
+
                     </ul>
                     <hr class="visible-xs">
                     <ul class="nav navbar-nav visible-xs">
@@ -104,26 +188,25 @@ include($WebsiteRoot . '/includes/userLogin.php');
                     <ul class="loginForm">
                         <li>
                             <span class="lLabel">Email:</span>
-                            <div class="lInput"><input type="text" id="Email-req-email" name="Email-req-email" value="<?php if(isset($_POST['Email-req-email'])) echo htmlentities($_POST['Email-req-email']);?>" maxlength="35" /></div>
+                            <div class="lInput"><input class="form-control" type="text" id="Email-req-email" name="Email-req-email" value="<?php if(isset($_POST['Email-req-email'])) echo htmlentities($_POST['Email-req-email']);?>" maxlength="35" /></div>
                         </li>
                         <li>
                             <span class="lLabel">Password:</span>
-                            <div class="lInput"><input type="password" id="password" name="Password-req" value="" maxlength="35" /></div>
+                            <div class="lInput"><input class="form-control" type="password" id="password" name="Password-req" value="" maxlength="35" /></div>
                         </li>
                         <li>
                             <span class="forgot"><a href = "forgotpassword.php">Forgot Password?</a></span>
-                            <span class="loginButton" ><button type="submit" name="submit" value="Login">Login</button></span>
+                            <span class="loginButton btn" ><button class="btn btn-primary" type="submit" name="submit" value="Login">Login</button></span>
                         </li>					
                     </ul>	
                     </form>												
 					<?php 						
-					if(isset($messages)){											
+					 if(isset($messages)){											
 						foreach($messages as $key => $value){						
-							echo '<font color="red">' . $value . '</font>';				
-							echo '</br>';						
-							}					
-							}	
-							//home/southc79/public_html	
+									echo '<font color="red">' . $value . '</font>';				
+									echo '</br>';						
+								}					
+							}
 					?>										
                 </div>
             </div>

@@ -2,9 +2,7 @@
 	if(isset($valid)){
 		
 		if($valid){
-				
-				echo "work 2";
-			
+
 			$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
 			require_once($WebsiteRoot . '/includes/noCache.php');
 			require_once ( $WebsiteRoot . '/phpmailer/PHPMailerAutoload.php');
@@ -27,14 +25,8 @@
 				$mail->Port= 25;
 
 				//From email address and name
-				if ($email != null)
-				{
-					$mail->From = $email;
-				}
-				else
-				{
-					$mail->From = 'noreply@southcoasttyrerecycling.com.au';
-				}
+				$mail->From = 'noreply@southcoasttyrerecycling.com.au';
+
 				$mail->FromName = $name;
 
 				//To address and name
