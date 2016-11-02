@@ -269,7 +269,7 @@
 										</select>
 									</div>	
 									<div class="right-column selectUserBtn">
-										<input class="btn btn-primary" type ="submit" id="fillform" name ="fillform" value ="Select User" size = "6"/>
+										<button class="btn btn-primary" type ="submit" id="fillform" name ="fillform" size = "6">Select User</button>
 									</div>
 									
 								</div>				
@@ -418,9 +418,9 @@
 										<button type="button" id="cancelEdit" class="hidden btn btn-primary" type="reset" onclick="window.location.reload()">Cancel Edit</button>									
 									</div>
 									<div class="right-column buttons">
-										<input type ="submit" id="submit" class="hidden btn btn-primary" name ="submit" value ="Submit" size = "6"/> 
+										<button type ="submit" id="submit" class="hidden btn btn-primary" name ="submit" size = "6">Submit</button>
 									</div>
-									<input type ="submit" id="delete" class="btn btn-danger" class="hidden" value="DELETE USER" name="delete"  >
+									<button type ="submit" id="delete" class="btn btn-danger" class="hidden" name="delete">DELETE USER</button>
 								</div>
 							
 							</li>

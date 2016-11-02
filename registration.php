@@ -246,10 +246,10 @@
 								<div class="inputs">
 								
 									<div class="left-column buttons">
-									   <input class="btn btn-primary" id="reset" type="reset" value="Reset" size ="6"/>
+									   <button class="btn btn-primary" id="reset" type="reset" size ="6">Reset</button>
 									</div>
 									<div class="right-column buttons">
-									   <input class="btn btn-primary" type ="submit" name ="submit" id="submit" value ="Submit" size = "6"/>
+									   <button class="btn btn-primary" type ="submit" name ="submit" id="submit" size = "6">Submit</button>
 									</div>
 								</div>
 							

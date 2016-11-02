@@ -76,7 +76,7 @@ session_start();
 			
 			echo '
 			<form action = "listBooking.php">
-			<input type = "submit" class="btn btn-primary" name ="" value ="List All Bookings" />
+			<button type = "submit" class="btn btn-primary" name ="">List All Bookings</button>
 			</form>
 			<br/>';
 			
@@ -265,7 +265,7 @@ session_start();
 								<span class = "labels">Address:</span>
 								<div class="inputs">
 									<div class="left-column">
-										<input class="form-control"type="text" name="address-req-alphanum" id="address-req-alphanum" value="<?php if(isset ($_POST['address-req-alphanum'])) {echo htmlentities( $_POST['address-req-alphanum']);} ?>" maxlength="80" /> 
+										<input class="form-control" type="text" name="address-req-alphanum" id="address-req-alphanum" value="<?php if(isset ($_POST['address-req-alphanum'])) {echo htmlentities( $_POST['address-req-alphanum']);} ?>" maxlength="80" /> 
 										<label for="address">Address</label>
 																	
 									     <select class="form-control" name="State-req" id="State-req" value = "<?php if(isset ($_POST['State-req'])) {echo htmlentities( $_POST['State-req']);} ?>">
@@ -341,10 +341,10 @@ session_start();
 								<span class="labels">Options:</span>
 								<div class="inputs">
 									<div class="left-column buttons">
-										<input type="reset" class="btn btn-primary" value="Reset" size />
+										<button type="reset" class="btn btn-primary">Reset</button>
 									</div>
 									<div class="right-column buttons">									
-										<input class="btn btn-primary" type ="submit" name ="submit" value ="Submit" />
+										<button class="btn btn-primary" type ="submit" name ="submit">Submit</button>
 									</div>
 								</div>
 								
@@ -372,7 +372,7 @@ session_start();
 									</div>
 									<div class="right-column bookingBtn">
 										<form action = "viewBooking.php">
-										<input type = "submit" class="btn btn-primary" name ="" value ="View My Bookings" />			
+										<button type = "submit" class="btn btn-primary" name ="">View My Bookings</button>
 										</form>
 									</div>
 								</div>					

@@ -7,6 +7,12 @@
 	require_once($WebsiteRoot. '/includes/dataConnect.php');
 	
 	require_once($WebsiteRoot . '/includes/loggedIn.php');
+	
+		
+
+	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else {$page=1; }; 
+	$resultsPerPage = 20;
+	$startPage = ($page-1) * $resultsPerPage;
   
   if ($_SESSION["admin"] == false)
 
@@ -34,10 +40,48 @@
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
 	
 	
-	<style> 
+<style> 
 	 td {text-align: center;
-	 }
+			border: 1px solid #ddd;
+			word-wrap: break-word;
+			padding: 8px;}
+			
 	 th {text-align: center;
+			background-color: #ddd;
+			border: 1px solid #ddd;
+			padding: 8px;}
+			
+	table.table1 {align: right;
+			width:100%;}
+			
+	thead {width 100%;}		
+			
+	 tr:hover {background-color: #ddd;}
+	 
+	 div.container-fluid text-center {
+		 overfow: auto;
+	 }
+	 
+	 @media only screen and (max-width: 1300px)
+	 {
+		#active, td:nth-child(1) {display: none; visibility:hidden;}
+		#active, th:nth-child(1){display: none; visibility:hidden;}
+		#id, td:nth-child(2){display: none; visibility:hidden;}
+		#id, th:nth-child(2){display: none; visibility:hidden;}
+		#status, td:nth-child(3){display: none; visibility:hidden;}
+		#status, th:nth-child(3){display: none; visibility:hidden;}
+		#mail, td:nth-child(7){display: none; visibility:hidden;}
+		#mail, th:nth-child(7){display: none; visibility:hidden;}
+		#name, td:nth-child(8){display: none; visibility:hidden;}
+		#name, th:nth-child(8){display: none; visibility:hidden;}
+		#number, td:nth-child(9){display: none; visibility:hidden;}
+		#number, th:nth-child(9){display: none; visibility:hidden;}
+		#date, td:nth-child(12){display: none; visibility:hidden;}
+		#date, th:nth-child(12){display: none; visibility:hidden;}
+		#complete, td:nth-child(13){display: none; visibility:hidden;}
+		#complete, th:nth-child(13){display: none; visibility:hidden;}
+		#delete, td:nth-child(14){display: none; visibility:hidden;}
+		#delete, th:nth-child(14){display: none; visibility:hidden;}
 	 }
 
 	</style>
@@ -47,17 +91,28 @@
 
 
 <?php
-	
 	//Select rows from the booking table to be displayed
 	
-	$sql = "SELECT booking_ID, booking_statusID, business_name, address, suburb, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking";
+	$sql = "SELECT booking_ID, booking_statusID, business_name, address, suburb, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking ORDER BY booking_statusID, booking_ID ASC LIMIT $startPage, 20";
 	$result = mysqli_query($conn, $sql);
+	
+	/*	if ($conn->query($sql) === TRUE) {
+					echo "You have created a booking";	
+				} else {
+				echo "Error: " . $sql . "<br>" . $conn->error;
+				} */
+				
+	$bookingTotal = "SELECT COUNT(booking_ID) AS totalBooking FROM booking";
+	$totalResult = $conn->query($bookingTotal);
+	$row = mysqli_fetch_assoc($totalResult);
+	$totalPages = ceil($row["totalBooking"] / $resultsPerPage); // calculate total pages with results
+	
 	
 	?>
 
 
 
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-center" >
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -198,55 +253,45 @@
                         </nav>
                     </div>
                 </header>
-                <div class="carousel slide" data-ride="carousel" id="myCarousel">
-                    <ol class="carousel-indicators">
-                        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-                        <li data-slide-to="1" data-target="#myCarousel"></li>
-                        <li data-slide-to="2" data-target="#myCarousel"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active"><img alt="Image1" src="img/01.jpg"></div>
-                        <div class="item"><img alt="Image2" src="img/02.jpg"></div>
-                        <div class="item"><img alt="Image3" src="img/03.jpg"></div>
-                    </div>
-                    <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class=                   "sr-only">Next</span></a>
-                </div>
-                <div class="mainContent" >
+                
+     
+                <div class="mainContent">
 				
 					<h1>List All Bookings</h1>
-					<p>Booking Status - 1 = Pending, 2 = Active, 3 = In-Progress 4 = Complete</p>
 					
 					
-					<form action = "booking.php">
-						<input type = "submit" name ="" value ="Return to Bookings" />
+					<form action = "exportCsvBooking.php">
+						<button type = "submit" name ="" class="btn btn-primary">Export To CSV</button>
 					</form>
 					<br/>
 					<form id = "adminView" method = "post" action = "" accept-charset='UTF-8' >
-
-									<table class="table table-hover">
+						
+					<table class ="table1">
 						<thead>
 							<tr>
-								<th> Active </th>
-								<th> ID </th>
-								<th> Status </th>
-								<th> Company </th>
-								<th> Address </th>
-								<th> Suburb </th>
-								<th> Pcode </th>
-								<th> Email </th>
-								<th> Name </th>
-								<th> Number </th>
-								<th> Type </th>
-								<th> Quantity</th>
-								<th> Date </th>
-								<th> Complete </th>
-								<th> Delete </th>
+								<th id="active"> Active </th>
+								<th id="id"> ID </th>
+								<th id="status"> Status </th>
+								<th id="company"> Company </th>
+								<th id="address"> Address </th>
+								<th id="suburb"> Suburb </th>
+								<th id="mail"> Email </th>
+								<th id="name"> Name </th>
+								<th id="number"> Number </th>
+								<th id="type"> Type </th>
+								<th id="quantity"> Amount</th>
+								<th id="date"> Date </th>
+								<th id="complete"> Complete </th>
+								<th id="delete"> Delete </th>
 							</tr>
 							</thead>
 						
 						
 						<tbody>
 						<?php
+						
+						
+						
 						if ($result->num_rows > 0){
 							while ($row = mysqli_fetch_assoc($result))
 							{
@@ -259,7 +304,7 @@
 										$bookingID = "Active";
 										break;	
 									case 3:
-										$bookingID = "In-Progree";
+										$bookingID = "In-Progress";
 										break;
 									case 4:
 										$bookingID = "Complete";
@@ -268,30 +313,38 @@
 										$bookingID = "Pending";
 										break;
 								}
+							
+							$date = $row['ready_date'];
+							$newDate = date("d-m-Y",strtotime($date));
+										
+								//	echo "<form action=deleteBooking.php method=post>";
+									echo "<tr>";
+									echo 	'<td> <a href = "activeBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Active </a></td>';
+									echo		"<td>{$row['booking_ID']}</td>";
+									echo		"<td>{$bookingID}</td>";
+									echo		"<td>{$row['business_name']}</td>";
+									echo		"<td>{$row['address']}</td>";
+									echo		"<td>{$row['suburb']}</td>";
+									//echo		"<td>{$row['postcode']}</td>";
+									echo		"<td>{$row['email']}</td>";
+									echo		"<td>{$row['contact_name']}</td>";
+									echo		"<td>{$row['contact_number']}</td>";
+									echo		"<td>{$row['type']}</td>";
+									echo		"<td>{$row['quantity']}</td>";
+									echo		"<td>$newDate</td>";	
+									echo 	'<td> <a href = "completeBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Complete </a></td>';
+									echo 	'<td> <a href = "deleteBookingAdmin.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Delete </a></td>';
+									echo "</tr>";
+								//	echo "</form> \n";
 								
-					//	echo "<form action=deleteBooking.php method=post>";
-						echo "<tr>";
-						echo 	'<td> <a href = "activeBooking.php?bookingID=' .$row['booking_ID']. '"> Active </a></td>';
-						echo		"<td>{$row['booking_ID']}</td>";
-						echo		"<td>{$bookingID}</td>";
-						echo		"<td>{$row['business_name']}</td>";
-						echo		"<td>{$row['address']}</td>";
-						echo		"<td>{$row['suburb']}</td>";
-						echo		"<td>{$row['postcode']}</td>";
-						echo		"<td>{$row['email']}</td>";
-						echo		"<td>{$row['contact_name']}</td>";
-						echo		"<td>{$row['contact_number']}</td>";
-						echo		"<td>{$row['type']}</td>";
-						echo		"<td>{$row['quantity']}</td>";
-						echo		"<td>{$row['ready_date']}</td>";	
-						echo 	'<td> <a href = "completeBooking.php?bookingID=' .$row['booking_ID']. '"> Complete </a></td>';
-									echo 	'<td> <a href = "deleteBookingAdmin.php?bookingID=' .$row['booking_ID']. '"> Delete </a></td>';
-						echo "</tr>";
-						echo "</form> \n";
-							}	
-						} else {
-							echo "0 records found";
-						}
+								}
+						}	else {
+										echo "0 records found";
+							}
+			
+					
+				
+			
 	
 					$conn->close(); 
 
@@ -299,11 +352,28 @@
 					
 						</tbody>
 					</table>
+					
 					</form>
+					<br/>
+						<?php 
 						
+						echo "Pages: ";
+		for ($i=1; $i<=$totalPages; $i++) {
+					// print links for all pages
+			echo "<a href=listBooking.php?page=".$i." class = 'btn btn-primary'";
+			if ($i==$page)  echo "class='curPage'";
+			echo ">".$i."</a>"; 
+			
+			
+		}
+		
+	  
+						
+						?>
+						<br/>
 						<br/>
 					<form action = "booking.php">
-					<input type = "submit" name ="view" value ="Return to Booking" />
+					<button type = "submit" name ="view" class="btn btn-primary">Return To Bookings</button>
 					</form>
 						
                 </div>

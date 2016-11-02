@@ -146,7 +146,7 @@
                                 }
                             ?>
                         </select>
-                        <input class="btn btn-primary" type ="submit" id="selectpage" name ="selectpage" value ="Select Page" size = "6" />
+                        <button class="btn btn-primary" type ="submit" id="selectpage" name ="selectpage" size = "6">Select Page</button>
                     </form>
                     <?php 
                         if(!empty($_SESSION['pagetitle']))
@@ -188,7 +188,7 @@
 			                                "</textarea>
 			                            </li>
 			                            <li>
-			                                <input type ='submit' class='btn btn-primary' id='submitpage' name ='submitpage' value ='Submit' size = '6'/>
+			                                <button type ='submit' class='btn btn-primary' id='submitpage' name ='submitpage' size = '6'>Submit</button>
 			                            </li>
 			                        </ul>
 		                    	</form>"

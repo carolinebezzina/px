@@ -47,12 +47,28 @@
 			border: 1px solid #ddd;
 			padding: 8px;}
 	 th {text-align: center;
+			background-color: #ddd;
 			border: 1px solid #ddd;
 			padding: 8px;}
+			
 			table {align:"right";
 			width: 100%;}
 			
 	 tr:hover {background-color: #ddd;}
+	 
+	 	@media only screen and (max-width: 1300px)
+	 {
+	table.table2 td:nth-child(1){display: none; visibility:hidden;}
+	table.table2 th:nth-child(1){display: none; visibility:hidden;}
+	table.table2 td:nth-child(3){display: none; visibility:hidden;}
+	table.table2 th:nth-child(3){display: none; visibility:hidden;}
+	table.table2 td:nth-child(4){display: none; visibility:hidden;}
+	table.table2 th:nth-child(4){display: none; visibility:hidden;}
+	table.table2 td:nth-child(5){display: none; visibility:hidden;}
+	table.table2 th:nth-child(5){display: none; visibility:hidden;}	
+	 }
+	 
+	 
 	</style>
 </head>
 <body>
@@ -62,7 +78,7 @@
 	
 	//use userID to get all bookings with the same user_ID
 	
-	$sql = "SELECT booking_ID, business_name, address, suburb, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking WHERE user_ID = '". $userID."'";
+	$sql = "SELECT booking_ID, booking_statusID, business_name, address, suburb, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking  WHERE user_ID = '". $userID."' ORDER BY booking_statusID, booking_ID ASC";
 	$result = mysqli_query($conn, $sql);
 	
 	?>
@@ -213,14 +229,14 @@
                 <div class="mainContent" >
 					<form id = "bookingView" method = "post" action = "" accept-charset='UTF-8' >
 					<h1>View My Bookings</h1>
-									<table>
+									<table class="table2">
 						<thead>
 							<tr style="background-color:#ddd;">
 								<th> Job No. </th>
+								<th> Status
 								<th> Company</th>
 								<th> Address </th>
 								<th> Suburb </th>
-								<th> Postcode </th>
 								<th> Type </th>
 								<th> Quantity</th>
 								<th> Date </th>
@@ -234,18 +250,45 @@
 						if ($result->num_rows > 0){
 							while ($row = mysqli_fetch_assoc($result))
 							{
+								
+								
+								Switch($row['booking_statusID'])
+								{
+									case 1:
+										$bookingID = "Pending";
+										break;
+									case 2:
+										$bookingID = "Active";
+										break;	
+									case 3:
+										$bookingID = "In-Progress";
+										break;
+									case 4:
+										$bookingID = "Complete";
+										break;
+									Default:
+										$bookingID = "Pending";
+										break;
+								}
+								
+								
+								
+									$date = $row['ready_date'];
+									$newDate = date("d-m-Y",strtotime($date));
+								
 						echo "<form action=deleteBooking.php method=post>";
 						echo "<tr>";
 						echo		"<td>{$row['booking_ID']}</td>";
+						echo		"<td>{$bookingID}</td>";
 						echo		"<td>{$row['business_name']}</td>";
 						echo		"<td>{$row['address']}</td>";
 						echo		"<td>{$row['suburb']}</td>";
-						echo		"<td>{$row['postcode']}</td>";
+					//	echo		"<td>{$row['postcode']}</td>";
 					//	echo		"<td>{$row['email']}</td>";
 						echo		"<td>{$row['type']}</td>";
 						echo		"<td>{$row['quantity']}</td>";
-						echo		"<td>{$row['ready_date']}</td>";
-						echo 	'<td> <a href = "deleteBooking.php?bookingID=' .$row['booking_ID']. '"> Delete </a></td>';
+						echo		"<td>$newDate</td>";
+						echo 	'<td> <a href = "deleteBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Delete </a></td>';
 						echo "</tr>";
 						echo "</form> \n";
 							}	
@@ -263,7 +306,7 @@
 					<br/>
 					
 					<form action = "booking.php">
-						<input type = "submit" class="btn btn-primary" name ="view" value ="Return to Bookings" />
+						<button type = "submit" class="btn btn-primary" name ="view">Return To Bookings</button>
 					</form>
                 </div>
                 

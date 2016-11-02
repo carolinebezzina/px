@@ -193,6 +193,10 @@ label {
 input {
     vertical-align: top;
 }
+input, select {
+	width: 200px !important;
+	box-sizing: border-box !important;
+}
 .loginButton button {
     width: 100px;
 }
@@ -208,7 +212,7 @@ hr {
 #delete {
 	margin-top: 20px;
 }
-#adminView, #bookingView {
+#adminView, #bookingView, #jobsheetViewAdmin, #jobsheetViewStaff {
 	overflow: auto;
 }
 
@@ -220,6 +224,9 @@ hr {
     }
     .lInput {
         margin-left: 10px;
+    }
+    .cLabel {
+        min-width: 20%;
     }
 }
 /*Media Query for tablets and bigger devices*/
@@ -238,9 +245,6 @@ hr {
     }
     .cLabel, .lLabel {
         display: inline-block;
-    }
-    .cLabel {
-        min-width: 20%;
     }
     .left-column, .right-column {
         display: inline-block;
@@ -376,4 +380,7 @@ hr {
 	.left-column, .right-column {
 		width: 49%;
 	}
+	.cLabel {
+        min-width: 30%;
+    }
 }
