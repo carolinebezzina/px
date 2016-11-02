@@ -7,6 +7,9 @@ session_start();
 	require_once($WebsiteRoot. '/includes/noCache.php');
 	include($WebsiteRoot . '/includes/validate.php');
 	require_once($WebsiteRoot . '/includes/loggedIn.php');
+	include($WebsiteRoot . '/newBooking.php');
+	
+
 	
 		if (($_SESSION["customer"] == false ) && ($_SESSION["user"] == false ) && ($_SESSION["admin"] == false ))
 
@@ -94,7 +97,7 @@ session_start();
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="style.css?version=51" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
 	<script src="gen_validatorv4.js" type="text/javascript"></script>
 </head>
@@ -253,57 +256,58 @@ session_start();
 							<li>
 								<span class="labels">Company Name:</span>
 								<div class="inputs">
-									<input type="text" name="companyName-req-alphanum" id="companyName-req-alphanum" value="" maxlength="80" />
+									<input class="form-control"type="text" name="companyName-req-alphanum" id="companyName-req-alphanum" value="<?php if(isset ($_POST['companyName-req-alphanum'])) {echo htmlentities( $_POST['companyName-req-alphanum']);} ?>" maxlength="100" />
 									<label class="visible-xs" for="contactName">Company Name</label> 
 									<input type="hidden" name="submitted" id="submitted" value="1"/>
+								</div>
 							</li>
 							<li>
 								<span class = "labels">Address:</span>
 								<div class="inputs">
 									<div class="left-column">
-										<input type="text" name="address-req-alphanum" id="address-req-alphanum" value="" maxlength="50" /> 
-										<br/><label for="address">Address</label><br/>
+										<input class="form-control"type="text" name="address-req-alphanum" id="address-req-alphanum" value="<?php if(isset ($_POST['address-req-alphanum'])) {echo htmlentities( $_POST['address-req-alphanum']);} ?>" maxlength="80" /> 
+										<label for="address">Address</label>
 																	
-									     <select name="State-req" id="State-req" >
-                                            <option name="select" value="selectreq" >-------------Select-------------</option>
-                                            <option name="act" value="Australian Capital Territory"  >Australian Capital Territory</option>
-                                            <option name="nsw" value="New South Wales">New South Wales</option>
-                                            <option name="nt" value="Northern Territory" >Northern Territory</option>
-                                            <option name="qld" value="Queensland" >Queensland</option>
-                                            <option name="sa" value="South Australia" >South Australia</option>
-                                            <option name="tas" value="Tasmania" >Tasmania</option>
-                                            <option name="vic" value="Victoria" >Victoria</option>
-                                            <option name="wa" value="Western Australia" >Western Australia</option>
+									     <select class="form-control" name="State-req" id="State-req" value = "<?php if(isset ($_POST['State-req'])) {echo htmlentities( $_POST['State-req']);} ?>">
+                                            <option name="select" value="selectreq" >------------Select------------</option>
+                                            <option name="act" value="ACT"  >ACT</option>
+                                            <option name="nsw" value="NSW">NSW</option>
+                                            <option name="nt" value="NT" >NT</option>
+                                            <option name="qld" value="QLD" >QLD</option>
+                                            <option name="sa" value="SA" >SA</option>
+                                            <option name="tas" value="TAS" >TAS</option>
+                                            <option name="vic" value="VIC" >VIC</option>
+                                            <option name="wa" value="WA" >WA</option>
                                         </select>
-										<br/><label for="state">State</label> 
+										<label for="state">State</label> 
 									</div>
 									
 									<div class="right-column">
-										<input type="text"name="Suburb-req-alpha" id="suburb-req-alpha" maxlength="50" value="" maxlength="10" />
-										<br/><label for="suburb">Suburb</label> 
-										<br/><input type="text" name="postcode-req-num" id="postcode-req-num"  value="" maxlength="4" size ="12" /> 
-										<br/><label for="postcode">Postcode</label>
+										<input class="form-control"type="text"name="Suburb-req-alpha" id="suburb-req-alpha" maxlength="60" value="<?php if(isset ($_POST['Suburb-req-alpha'])) {echo htmlentities( $_POST['Suburb-req-alpha']);} ?>"  />
+										<label for="suburb">Suburb</label> 
+										<input class="form-control"type="text" name="postcode-req-num" id="postcode-req-num"  value="<?php if(isset ($_POST['postcode-req-num'])) {echo htmlentities( $_POST['postcode-req-num']);} ?>" maxlength="4"  /> 
+										<label for="postcode">Postcode</label>
 									</div>
 								</div>
 							</li>
 							<li>
 								<span class="labels">Email Address:</span>
 								<div class="inputs">
-									<input type="email" name="Email-req-email" id="Email-req-email" value=""  maxlength="50" />
+									<input class="form-control"type="email" name="Email-req-email" id="Email-req-email" value="<?php if(isset ($_POST['Email-req-email'])) {echo htmlentities( $_POST['Email-req-email']);} ?>"  maxlength="45" />
 									<label class="visible-xs" for="email">Email Address</label> 
 								</div>
 							</li>
 							<li>
 								<span class="labels">Contact Name:</span>
 								<div class="inputs">
-									<input type="text" name="contactName-req-alpha" id="contactName-req-alpha" value="" maxlength="50" />
+									<input class="form-control"type="text" name="contactName-req-alpha" id="contactName-req-alpha" value="<?php if(isset ($_POST['contactName-req-alpha'])) {echo htmlentities( $_POST['contactName-req-alpha']);} ?>" maxlength="45" />
 									<label class="visible-xs" for="contactName">Contact Name</label> 
 								</div>
 							</li>
 							<li>
 								<span class="labels">Contact Number:</span>
 								<div class="inputs">
-									<input type="text" name="phone-req-num" id="phone-req-num" value="" maxlength="12" />
+									<input class="form-control"type="text" name="phone-req-num" id="phone-req-num" value="<?php if(isset ($_POST['phone-req-num'])) {echo htmlentities( $_POST['phone-req-num']);} ?>" maxlength="12" />
 									<label class="visible-xs" for="phone">Contact Number</label>
 								</div>	
 							</li>
@@ -311,31 +315,39 @@ session_start();
 								<span class="labels">Tyres:</span>
 								<div class="inputs">
 									<div class="left-column">
-										<select name="type-req" id = "type-req">
-										<option name="selectOne" value="selectreq" >--------Select--------</option>
+										<select class="form-control"  name="type-req" id = "type-req" value="<?php if(isset ($_POST['type-req'])) {echo htmlentities( $_POST['type-req']);} ?>">
+										<option name="selectOne" value="selectreq" >------------Select------------</option>
 										<option name="truck" value="Truck Tyres"  >Truck Tyres</option>
 										<option name="tractor" value="Tractor Tyres"  >Tractor Tyres</option>
 										<option name="motorbike" value="Motorbike Tyres"  >Motorbike Tyres</option>
 										<option name="car" value="Car Tyres"  >Car Tyres</option>
 										</select>
-										<br/><label for="type">Type</label> 
+										<label for="type">Type</label> 
 									</div>
 									<div class="right-column">
-										<input type="text" name="quantity-req-num" id="quantity-req-num" value="" maxlength="50"/>
-										<br/><label for="tyreQuantity">Quantity</label> 
+										<input class="form-control"type="text" name="quantity-req-num" id="quantity-req-num" value="<?php if(isset ($_POST['quantity-req-num'])) {echo htmlentities( $_POST['quantity-req-num']);} ?>" maxlength="3"/>
+										<label for="tyreQuantity">Quantity</label> 
 									</div>
 								</div>
 							</li>
 							<li>
 								<span class="labels">Preferred Pick-Up Date:</span>
 								<div class="inputs">
-									<input type = "date" name = "readydate-req" id="readydate-req" value=""/>
+									<input class="form-control"type = "date" name = "readydate-req" id="readydate-req" value="<?php if(isset ($_POST['readydate-req'])) {echo htmlentities( $_POST['readydate-req']);} ?>"/>
 									<label class="visible-xs" for="readydate">Preferred Pick-Up Date</label> 
 								</div>
 							</li>
 							<li>
-								<input class="btn btn-primary" type ="submit" name ="submit" value ="Submit" />	
-								<input type="reset" class="btn btn-primary" value="Reset" size />	 
+								<span class="labels">Options:</span>
+								<div class="inputs">
+									<div class="left-column buttons">
+										<input type="reset" class="btn btn-primary" value="Reset" size />
+									</div>
+									<div class="right-column buttons">									
+										<input class="btn btn-primary" type ="submit" name ="submit" value ="Submit" />
+									</div>
+								</div>
+								
 							</li>		
 						</ul>
 					</form>
@@ -344,26 +356,29 @@ session_start();
 						foreach($messages as $key => $value){
 							echo '<font color="red">' . $value . '</font>';
 							echo '</br>';
+								
 						}
-					}else
-						{
-							header ("Location: viewBooking.php");
-						}
+					}
+					
 					?>
-					
-					<form action = "viewBooking.php">
-					<input type = "submit" class="btn btn-primary" name ="" value ="View My Bookings" />
-					</form>
-					
-					<br/>
-					
-					<?php
-						
-						userButtons();
-						
-					?>
-					
-                </div>
+						<ul class = "booking">
+							<li>
+							<span class="labels">View Bookings:</span>
+								<div class="inputs">
+									<div class="left-column bookingBtn">
+										<?php
+											userButtons();							
+										?>
+									</div>
+									<div class="right-column bookingBtn">
+										<form action = "viewBooking.php">
+										<input type = "submit" class="btn btn-primary" name ="" value ="View My Bookings" />			
+										</form>
+									</div>
+								</div>					
+							</li> 
+						</ul>
+					</div>
                 <div class="col-xs-1 col-md-2 sidenav"></div>
             </div>
 					
@@ -374,38 +389,35 @@ session_start();
 	<script type="text/javascript">
 	var frmvalidator = new Validator("bookings");
 	//validate company name
-	frmvalidator.addValidation("companyName", "req", "Please enter your company Name");
+	frmvalidator.addValidation("companyName-req-alphanum", "req", "Please enter your company Name");
 	//validate address
-	frmvalidator.addValidation("address", "req", "Please enter your address");
+	frmvalidator.addValidation("address-req-alphanum", "req", "Please enter your address");
 	//validate postcode
-	frmvalidator.addValidation("postcode", "req", "Please enter your postcode");
-	frmvalidator.addValidation("postcode", "maxlen=4", "Required length is 4");
-	frmvalidator.addValidation("postcode", "numeric", "Please enter a number");
+	frmvalidator.addValidation("postcode-req-num", "req", "Please enter your postcode");
+	frmvalidator.addValidation("postcode-req-num", "maxlen=4", "Required length is 4");
+	frmvalidator.addValidation("postcode-req-num", "numeric", "Please enter a number");
 	//validate state
-	frmvalidator.addValidation("state","dontselect=Select One","Please select a state");
+	frmvalidator.addValidation("State-req","dontselect=Select One","Please select a state");
 	//validate suburb
-	frmvalidator.addValidation("suburb", "req", "Please enter your suburb");
+	frmvalidator.addValidation("Suburb-req-alpha", "req", "Please enter your suburb");
 	//validate email
-	frmvalidator.addValidation("email", "req", "Please enter an email");
-	frmvalidator.addValidation("email", "email", "Incorrect form of email - example@example.example");
+	frmvalidator.addValidation("Email-req-emai", "req", "Please enter an email");
+	frmvalidator.addValidation("Email-req-emai", "email", "Incorrect form of email - example@example.example");
 	//validate contact name
-	frmvalidator.addValidation("contactName", "req", "Please enter a person to contact");
+	frmvalidator.addValidation("contactName-req-alpha", "req", "Please enter a person to contact");
 	//validate contact number
-	frmvalidator.addValidation("phone", "req", "Please enter a contact number");
-	frmvalidator.addValidation("phone", "numeric", "Incorrect characters within in phone number");
+	frmvalidator.addValidation("phone-req-num", "req", "Please enter a contact number");
+	frmvalidator.addValidation("phone-req-num", "numeric", "Incorrect characters within in phone number");
 	//validate type of tyres	
-	frmvalidator.addValidation("type","dontselect=Select One","Please select a type of tyre");
+	frmvalidator.addValidation("type-req","dontselect=Select One","Please select a type of tyre");
 	//validate quantity
-	frmvalidator.addValidation("quantity","req", "Please enter the amount of tyres");
-	frmvalidator.addValidation("quantity","numeric", "Tyre Quantity must be a number");
+	frmvalidator.addValidation("quantity-req-num","req", "Please enter the amount of tyres");
+	frmvalidator.addValidation("quantity-req-num","numeric", "Tyre Quantity must be a number");
 	//validate pick up date
-	frmvalidator.addValidation("readydate","req","Please enter your preferred date");
+	frmvalidator.addValidation("readydate-req","req","Please enter your preferred date");
 	</script>
 	
-	<?php 
-	$WebsiteRoot = $_SERVER['DOCUMENT_ROOT'];
-	include_once($WebsiteRoot . '/newBooking.php');
-	?>
+
     <footer></footer>  	
 </body>
 </html>

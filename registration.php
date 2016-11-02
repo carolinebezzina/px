@@ -201,7 +201,7 @@
                                     <div class="left-column">
                                         <input class="form-control" type="text" name="Address-req-alphanum" id="address"  value="<?php if(isset($_POST['Address-req-alphanum'])) echo htmlentities($_POST['Address-req-alphanum']);?>" maxlength="80"/><span class="required"></span>
                                         <label>Address</label>
-                                        <br/>
+                                        
                                         <select class="form-control" name="State-req" id="State-req" >
                                             <option name="select" value="selectreq" >---Select---</option>
                                             <option name="act" value="Australian Capital Territory" <?php echo $ACT; ?> >ACT</option>
@@ -214,12 +214,12 @@
                                             <option name="wa" value="Western Australia" <?php echo $WA; ?>>WA</option>
                                         </select>
                                         <span class="required"></span>
-                                        <br/><label>State</label>
+                                        <label>State</label>
                                     </div>
                                     <div class="right-column">
 										<input class="form-control" type="text" name="Suburb-req-alpha" id="suburb" maxlength="50" value="<?php if(isset($_POST['Suburb-req-alpha'])) echo htmlentities($_POST['Suburb-req-alpha']);?>" /><span class="required"></span>
                                         <label>Suburb</label>
-										<br/>							
+																
                                         <input class="form-control" type="text" name="Postcode-req-num" id="pcode" maxlength="50" value="<?php if(isset($_POST['Postcode-req-num'])) echo htmlentities($_POST['Postcode-req-num']);?>" /><span class="required"></span>
                                         <label>Postcode</label>
                                     </div>
@@ -235,33 +235,25 @@
                                     <div class="left-column">
                                         <input class="form-control" type="password" name="Confirm_Password-req" id="confirm_password" onkeyup="checkPass(); return false" maxlength="18"/><span class="required"><?php if(isset($reqConfirm) || isset($match)){echo htmlentities($reqConfirm) . htmlentities($match);  }?></span>
                                         <label>Confirm Password</label>
-										<br/>
+										
 									    <span id="confirmMessage" class="confirmMessage"></span>
                                     </div>
                                 </div>
                             </li>
 							<li>
-								<span class="labels">Options :</span>
+								<span class="labels">Options:</span>
 								
 								<div class="inputs">
 								
-									<div class="left-column">
-									
-									<input class="btn btn-primary" type ="submit" name ="submit" id="submit" value ="Submit" size = "6"/>
-										
+									<div class="left-column buttons">
+									   <input class="btn btn-primary" id="reset" type="reset" value="Reset" size ="6"/>
 									</div>
-									<div class="right-column">
-									
-									<input class="btn btn-primary" type="reset" value="Reset" size ="6"/>
-									
+									<div class="right-column buttons">
+									   <input class="btn btn-primary" type ="submit" name ="submit" id="submit" value ="Submit" size = "6"/>
 									</div>
 								</div>
 							
 							</li>
-							<li>
-                               
-                                
-                            </li>
 						</ul>				
 					</form>
 					<?php 

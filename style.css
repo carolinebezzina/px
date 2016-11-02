@@ -158,9 +158,6 @@ h3 {
 .navbar-right li {
 	margin-right: 0px;
 }
-.registration li, .booking li, .users li, .contact-list li, .accounts li, #editpages li {
-    padding-bottom: 10px;
-}
 .contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users, #editpages {
     padding-left: 0px;
     list-style: none;
@@ -208,6 +205,13 @@ hr {
 .left-column, .right-column {
     vertical-align: top;
 }
+#delete {
+	margin-top: 20px;
+}
+#adminView, #bookingView {
+	overflow: auto;
+}
+
 /*Media Query for laptops and desktops*/
 @media (min-width: 1024px) {
     .lLabel {
@@ -254,6 +258,12 @@ hr {
     .contact-list, .contactForm, .loginForm, .accounts, .registration, .booking, .users {
         text-align: left;
     }
+    .registration li, .booking li, .users li, .contact-list li, .accounts li, #editpages li {
+    	padding-bottom: 20px;
+	}
+	#selectpage .btn {
+    	margin-left: 20px;
+    }
 }
 /*Media Query for mobiles and tablets*/
 @media (max-width: 1024px) {
@@ -293,16 +303,14 @@ hr {
     header {
         background-position: center;
     }
-    .contact-list li{
-        padding-right: 0px;
-    }
+
     textarea {
         max-width: 100%;
     }
     .forgot {
         padding-bottom: 10px;
     }
-    .cLabel, .lLabel, .loginButton, .forgot, .loginForm li, .inputs {
+    .cLabel, .lLabel, .loginButton, .forgot, .loginForm li, .inputs, label {
         display: block;
     }
     .epa {
@@ -314,6 +322,46 @@ hr {
     }
     .loginForm li{
     	text-align: center;
+    }
+    .form-control {
+    	margin: auto;
+    	text-align: center;
+    }
+	label {
+		text-align: center;
+		padding-bottom: 10px;
+	}
+    .mainContent li {
+    	text-align: left;
+    }
+    .contactForm li, .loginForm li {
+    	text-align: center;
+    }
+    .contact-list li{
+        padding-right: 0px;
+        text-align: center;
+    }
+    .registration .buttons, .accounts .buttons, .booking .buttons, .users .buttons {
+    	display: inline-block;
+    }
+    .registration li div .right-column.buttons, .accounts li div .right-column.buttons, 
+    .booking li div .right-column.buttons, .users li div .right-column.buttons {
+    	float: right;
+    }
+    .bookingBtn, .selectUserBtn {
+    	text-align: center;
+    }
+    #selectpage .btn, .users li div .right-column #fillform  {
+    	margin-top: 20px;
+    }
+    #editpages li {
+    	padding-top: 20px;
+    	text-align: center;
+    }
+    #delete {
+    	display: block;
+    	margin-left: auto;
+    	margin-right: auto;
     }
 }
 /*Media Query for tablets*/

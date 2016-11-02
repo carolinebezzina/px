@@ -268,7 +268,7 @@
 											?>
 										</select>
 									</div>	
-									<div class="right-column">
+									<div class="right-column selectUserBtn">
 										<input class="btn btn-primary" type ="submit" id="fillform" name ="fillform" value ="Select User" size = "6"/>
 									</div>
 									
@@ -313,7 +313,7 @@
 								<div class="inputs">
                                     <div class="left-column">
 										<input class="form-control" type = "email" name = "EMail-req-email" id="EMail-req-email" value ="<?php if(!empty($_SESSION['emailTwo'])){echo $_SESSION['emailTwo'];} ?>" maxlength="64"/>
-										<label for="EMail-req-email" class="visible-xs">EMail-req-email Address</label> 
+										<label for="EMail-req-email" class="visible-xs">Email Address</label> 
 									</div>
 									<div class="right-column">
                                         <label>Note: Email is also your username!</label>
@@ -333,7 +333,7 @@
 								    <div class="left-column">
 										<input class="form-control" type = "text" name = "Address-req-alphanum" id="Address-req-alphanum" value ="<?php if(!empty($_SESSION['address'])){echo $_SESSION['address'];} ?>" maxlength="80"/>
 										<label for="address">Address</label> 
-										<br/>
+										
 										<select class="form-control" name="State-req" id="State-req">										
                                             <option name="selectreq" value="selectreq" >-------------Select-------------</option>	
 											<option name="act" value="Australian Capital Territory" <?php echo $ACT; ?> >Australian Capital Territory</option>   
@@ -353,7 +353,6 @@
 
 									<label for="address">Suburb</label>
 
-									<br/>
 									<input class="form-control" type = "text" name = "Postcode-req-num" id="Postcode-req-num" value ="<?php if(!empty($_SESSION['postcode'])) {echo $_SESSION['postcode'];} ?>" maxlength="4"/>
 									<label for="postcode">Postcode</label> 
 								</div>
@@ -376,8 +375,6 @@
 											<input class="form-control" type = "text" name = "Emergency_Phone-num" id="emergencyPhone" value ="<?php if(!empty($_SESSION['emPhone'])) {echo $_SESSION['emPhone'];} ?>" maxlength="12"/>
 
 											<label for="address">Phone Number</label>
-											<br/>
-											
 
 									</div>
 								</div>
@@ -407,9 +404,6 @@
 										
 
 											<label for="address">Change to:</label>
-											<br/>
-											
-
 									</div>
 								</div>
 							
@@ -419,29 +413,19 @@
 								
 								<div class="inputs">
 								
-									<div class="left-column">
-									
-									<input type ="submit" id="submit" class="hidden btn btn-primary" name ="submit" value ="Submit" size = "6"/> </br>
-										
-									</div>
-									<div class="right-column">
-									
+									<div class="left-column buttons">
 									<button type="button" id="enableForm" class="btn btn-primary" onclick="enableEdit()">Edit Details</button>
-										
-									<input type ="submit" id="delete" class="btn btn-danger" class="hidden" value="DELETE USER" name="delete"  >
-									</br></br>
-									<button type="button" id="cancelEdit" class="hidden btn btn-primary" type="reset" onclick="window.location.reload()">Cancel Edit</button> </br>
-									
-									
+										<button type="button" id="cancelEdit" class="hidden btn btn-primary" type="reset" onclick="window.location.reload()">Cancel Edit</button>									
 									</div>
+									<div class="right-column buttons">
+										<input type ="submit" id="submit" class="hidden btn btn-primary" name ="submit" value ="Submit" size = "6"/> 
+									</div>
+									<input type ="submit" id="delete" class="btn btn-danger" class="hidden" value="DELETE USER" name="delete"  >
 								</div>
 							
 							</li>
 						</ul>	
 					</form>
-						</br>
-					 
-					
 					
 					<?php 
 						errorMsg($messages);
