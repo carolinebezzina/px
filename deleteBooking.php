@@ -16,19 +16,12 @@
 		$bookingID = $_GET['bookingID'];
 		$sql = "DELETE FROM booking WHERE booking_ID = $bookingID";
 		$deleteQuery = mysqli_query($conn, $sql);
+		
 
 		header("Location: viewBooking.php");	
 		
 	}else {
 		header("Location: viewBooking.php");
 	}
-	//$bookingID = $_POST['booking_ID'];
-	//$sql = "DELETE FROM booking WHERE booking_ID = '$_POST[booking_ID]'";
-	//$deleteQuery = mysqli_query($conn, $sql);
-	/* if ($conn->query($sql) === TRUE) {
-			echo "You have deleted a booking";	
-		} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
-	} */
 
 ?>

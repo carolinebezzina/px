@@ -73,6 +73,7 @@
 								echo "Mailer Error: " . $mail->ErrorInfo;
 							} else 
 							{
+								header("location: bookingSuccess.php");
 								echo "Message has been sent successfully";
 							}
 					}

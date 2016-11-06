@@ -249,7 +249,7 @@
 									   <button class="btn btn-primary" id="reset" type="reset" size ="6">Reset</button>
 									</div>
 									<div class="right-column buttons">
-									   <button class="btn btn-primary" type ="submit" name ="submit" id="submit" size = "6">Submit</button>
+									   <button class="btn btn-primary" type ="submit" name ="submit" value="Submit" id="submit" size = "6">Submit</button>
 									</div>
 								</div>
 							

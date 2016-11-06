@@ -12,30 +12,43 @@
 				$email = $_SESSION['email'];
 			}
 			
-			$sql = "DELETE FROM user_details WHERE email = '$email' ";
+			$sql = "SELECT user_ID FROM user_details WHERE email = '$email' ";
+			$rs = mysqli_query($conn, $sql);
+			$row = mysqli_fetch_array($rs);
+			$userID = $row['user_ID'];
+			
+			$sql = "SELECT * FROM booking WHERE user_ID = '$userID' ";
+			$rs = mysqli_query($conn, $sql);	
 			//mysqli_query($conn, $sql);
 			
-			if ($conn->query($sql) === TRUE) { 
+			if(mysqli_num_rows($rs) == 0){
 			
-				unset($_SESSION['fname']);
-				unset($_SESSION['lname']);
-				unset($_SESSION['address']);
-				unset($_SESSION['postcode']);
-				unset($_SESSION['state']);
-				unset($_SESSION['business']);
-				unset($_SESSION['phone']);
-				unset($_SESSION['suburb']);
-				unset($_SESSION['emPhone']);
-				unset($_SESSION['emName']);	
-				unset($_SESSION['emailTwo']);
-				unset($_SESSION['userType']);				
-				unset($_SESSION['selected']);
-			
-			}else {
-				echo "Error: " . $sql . "<br>" . $conn->error;
+				$sql = "DELETE FROM user_details WHERE email = '$email' ";
+				
+				if ($conn->query($sql) === TRUE) { 
+				
+					unset($_SESSION['fname']);
+					unset($_SESSION['lname']);
+					unset($_SESSION['address']);
+					unset($_SESSION['postcode']);
+					unset($_SESSION['state']);
+					unset($_SESSION['business']);
+					unset($_SESSION['phone']);
+					unset($_SESSION['suburb']);
+					unset($_SESSION['emPhone']);
+					unset($_SESSION['emName']);	
+					unset($_SESSION['emailTwo']);
+					unset($_SESSION['userType']);				
+					unset($_SESSION['selected']);
+				
+				}else {						
+					echo "Error: " . $sql . "<br>" . $conn->error . "<br>" . $userID . "test";
+				}
+			}else{
+				$msg = "User has a booking, cannot delete user!";
 			}
-			
-			$conn->close();
+				
+				$conn->close();
 			
 	}
 	if($valid){
@@ -159,6 +172,11 @@
 		
 	}
 
+	function queryErr($msg){
+		
+		echo '<font color="red">' . $msg . '</font>';
+		return;
+	}
 ?>
 
 	

@@ -64,24 +64,39 @@
 	 
 	 @media only screen and (max-width: 1300px)
 	 {
-		#active, td:nth-child(1) {display: none; visibility:hidden;}
-		#active, th:nth-child(1){display: none; visibility:hidden;}
-		#id, td:nth-child(2){display: none; visibility:hidden;}
-		#id, th:nth-child(2){display: none; visibility:hidden;}
-		#status, td:nth-child(3){display: none; visibility:hidden;}
-		#status, th:nth-child(3){display: none; visibility:hidden;}
-		#mail, td:nth-child(7){display: none; visibility:hidden;}
-		#mail, th:nth-child(7){display: none; visibility:hidden;}
-		#name, td:nth-child(8){display: none; visibility:hidden;}
-		#name, th:nth-child(8){display: none; visibility:hidden;}
-		#number, td:nth-child(9){display: none; visibility:hidden;}
-		#number, th:nth-child(9){display: none; visibility:hidden;}
-		#date, td:nth-child(12){display: none; visibility:hidden;}
-		#date, th:nth-child(12){display: none; visibility:hidden;}
-		#complete, td:nth-child(13){display: none; visibility:hidden;}
-		#complete, th:nth-child(13){display: none; visibility:hidden;}
-		#delete, td:nth-child(14){display: none; visibility:hidden;}
-		#delete, th:nth-child(14){display: none; visibility:hidden;}
+		 
+		#active, td:nth-child(1) {font-size: 75%; }
+		#active, th:nth-child(1){font-size: 75%; }
+		#complete, td:nth-child(2) {font-size: 75%; }
+		#complete, th:nth-child(2){font-size: 75%; }
+		#delete, td:nth-child(3) {font-size: 75%; }
+		#delete, th:nth-child(3){font-size: 75%; }
+		#status, td:nth-child(5) {font-size: 75%; }
+		#status, th:nth-child(5){font-size: 75%; }
+		#company, td:nth-child(6) {font-size: 75%; }
+		#company, th:nth-child(6){font-size: 75%; }
+		#type, td:nth-child(12) {font-size: 75%; }
+		#type, th:nth-child(12){font-size: 75%; }
+		#quantity, td:nth-child(13) {font-size: 75%; }
+		#quantity, th:nth-child(13){font-size: 75%; }
+		 
+		 
+		 
+		#id, td:nth-child(4) {display: none; visibility:hidden;  }
+		#id, th:nth-child(4){display: none; visibility:hidden; }
+		#address, td:nth-child(7){display: none; visibility:hidden;}
+		#address, th:nth-child(7){display: none; visibility:hidden;}
+		#suburb, td:nth-child(8){display: none; visibility:hidden;}
+		#suburb, th:nth-child(8){display: none; visibility:hidden;}
+		#mail, td:nth-child(9){display: none; visibility:hidden;}
+		#mail, th:nth-child(9){display: none; visibility:hidden;}
+		#name, td:nth-child(10){display: none; visibility:hidden;}
+		#name, th:nth-child(10){display: none; visibility:hidden;}
+		#number, td:nth-child(11){display: none; visibility:hidden;}
+		#number, th:nth-child(11){display: none; visibility:hidden;}
+		#date, td:nth-child(14){display: none; visibility:hidden;}
+		#date, th:nth-child(14){display: none; visibility:hidden;}
+		
 	 }
 
 	</style>
@@ -270,6 +285,8 @@
 						<thead>
 							<tr>
 								<th id="active"> Active </th>
+								<th id="complete"> Complete </th>
+								<th id="delete"> Delete </th>
 								<th id="id"> ID </th>
 								<th id="status"> Status </th>
 								<th id="company"> Company </th>
@@ -281,8 +298,7 @@
 								<th id="type"> Type </th>
 								<th id="quantity"> Amount</th>
 								<th id="date"> Date </th>
-								<th id="complete"> Complete </th>
-								<th id="delete"> Delete </th>
+
 							</tr>
 							</thead>
 						
@@ -319,7 +335,9 @@
 										
 								//	echo "<form action=deleteBooking.php method=post>";
 									echo "<tr>";
-									echo 	'<td> <a href = "activeBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Active </a></td>';
+									echo 	'<td> <a href = "activeBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary "> Active </a></td>';
+									echo 	'<td> <a href = "completeBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Complete </a></td>';
+									echo 	'<td> <a href = "deleteBookingAdmin.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Delete </a></td>';
 									echo		"<td>{$row['booking_ID']}</td>";
 									echo		"<td>{$bookingID}</td>";
 									echo		"<td>{$row['business_name']}</td>";
@@ -332,8 +350,7 @@
 									echo		"<td>{$row['type']}</td>";
 									echo		"<td>{$row['quantity']}</td>";
 									echo		"<td>$newDate</td>";	
-									echo 	'<td> <a href = "completeBooking.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Complete </a></td>';
-									echo 	'<td> <a href = "deleteBookingAdmin.php?bookingID=' .$row['booking_ID']. '" class="btn btn-primary"> Delete </a></td>';
+
 									echo "</tr>";
 								//	echo "</form> \n";
 								

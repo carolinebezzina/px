@@ -30,7 +30,7 @@
 				$mail->FromName = $name;
 
 				//To address and name
-				$mail->addAddress("c_bezzina@hotmail.com", "South Coast Tyre Recycling");
+				$mail->addAddress("info@southcoasttyrerecycling.com.au", "South Coast Tyre Recycling");
 
 				//Address to which recipient will reply
 				$mail->addReplyTo($email, "Reply");
@@ -63,7 +63,7 @@
 								"<p>You have received a contact request through southcoasttyrerecycling.com.au</p>
 								<p>The details are as follows:</p>
 								<p>Name: " . $name . "</p>
-								<p>Email: " . $email . "</p>
+								<p>Email: <a href='mailto:" . $email . "'>" . $email . "</a></p>
 								<p>Phone: " . $phone . "</p>
 								<p>Message:</p>
 								<p>" . $message . "</p>

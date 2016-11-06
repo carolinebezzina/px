@@ -1,0 +1,28 @@
+[17-Oct-2016 21:48:03 CST6CDT] PHP Fatal error:  require_once(): Failed opening required 'includes/nocache.php' (include_path='.:/usr/local/php56/pear') in /home/southc79/public_html/includes/accountUpdate.php on line 3
+[17-Oct-2016 21:50:23 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/home/southc79/public_htmlincludes/nocache.php' (include_path='.:/usr/local/php56/pear') in /home/southc79/public_html/includes/accountUpdate.php on line 5
+[17-Oct-2016 21:54:45 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/home/southc79/public_htmlincludes/noCache.php' (include_path='.:/usr/local/php56/pear') in /home/southc79/public_html/includes/accountUpdate.php on line 5
+[18-Oct-2016 23:53:26 CST6CDT] PHP Parse error:  syntax error, unexpected '<' in /home/southc79/public_html/includes/index.php on line 103
+[18-Oct-2016 23:55:55 CST6CDT] PHP Parse error:  syntax error, unexpected '$rs' (T_VARIABLE), expecting ',' or ';' in /home/southc79/public_html/includes/index.php on line 103
+[18-Oct-2016 23:56:41 CST6CDT] PHP Parse error:  syntax error, unexpected '$rs' (T_VARIABLE), expecting ',' or ';' in /home/southc79/public_html/includes/index.php on line 103
+[18-Oct-2016 23:58:07 CST6CDT] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/southc79/public_html/includes/index.php on line 103
+[18-Oct-2016 23:58:08 CST6CDT] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/southc79/public_html/includes/index.php on line 103
+[18-Oct-2016 23:58:09 CST6CDT] PHP Parse error:  syntax error, unexpected ')', expecting ',' or ';' in /home/southc79/public_html/includes/index.php on line 103
+[19-Oct-2016 00:00:26 CST6CDT] PHP Parse error:  syntax error, unexpected ')' in /home/southc79/public_html/includes/index.php on line 105
+[19-Oct-2016 00:00:27 CST6CDT] PHP Parse error:  syntax error, unexpected ')' in /home/southc79/public_html/includes/index.php on line 105
+[19-Oct-2016 00:00:44 CST6CDT] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/southc79/public_html/includes/index.php on line 106
+[19-Oct-2016 00:07:50 CST6CDT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/southc79/public_html/includes/index.php on line 106
+[19-Oct-2016 04:27:50 CST6CDT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/southc79/public_html/includes/updatepage.php on line 15
+[19-Oct-2016 04:31:03 CST6CDT] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/southc79/public_html/includes/updatepage.php on line 15
+[22-Oct-2016 00:07:52 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/southc79/public_html/includes/accountUpdate.php on line 28
+[22-Oct-2016 00:08:46 CST6CDT] PHP Parse error:  syntax error, unexpected '$emName' (T_VARIABLE) in /home/southc79/public_html/includes/accountUpdate.php on line 29
+[22-Oct-2016 00:09:09 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/southc79/public_html/includes/accountUpdate.php on line 28
+[22-Oct-2016 00:10:03 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/southc79/public_html/includes/accountUpdate.php on line 28
+[22-Oct-2016 00:10:04 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/southc79/public_html/includes/accountUpdate.php on line 28
+[22-Oct-2016 00:10:09 CST6CDT] PHP Parse error:  syntax error, unexpected ';' in /home/southc79/public_html/includes/accountUpdate.php on line 28
+[22-Oct-2016 22:51:33 CST6CDT] PHP Parse error:  syntax error, unexpected '}' in /home/southc79/public_html/includes/contactMail.php on line 28
+[22-Oct-2016 22:52:22 CST6CDT] PHP Fatal error:  require_once(): Failed opening required '/phpmailer/PHPMailerAutoload.php' (include_path='.:/usr/local/php56/pear') in /home/southc79/public_html/includes/contactMail.php on line 2
+[23-Oct-2016 00:08:59 CST6CDT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/southc79/public_html/includes/contactMail.php on line 54
+[23-Oct-2016 00:13:02 CST6CDT] PHP Parse error:  syntax error, unexpected '$phone' (T_VARIABLE) in /home/southc79/public_html/includes/contactMail.php on line 62
+[23-Oct-2016 00:13:44 CST6CDT] PHP Parse error:  syntax error, unexpected ',' in /home/southc79/public_html/includes/contactMail.php on line 62
+[23-Oct-2016 03:20:12 CST6CDT] PHP Parse error:  syntax error, unexpected '$sql' (T_VARIABLE) in /home/southc79/public_html/includes/editUserFormSQL.php on line 14
+[23-Oct-2016 03:54:45 CST6CDT] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/southc79/public_html/includes/accountUpdate.php on line 106

@@ -24,7 +24,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Booking - South Coast Tyre Recycling</title>
+    <title>job sheet Admin - South Coast Tyre Recycling</title>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js">
@@ -36,7 +36,18 @@
     <link href="https://fonts.googleapis.com/css?family=Galdeano" rel="stylesheet">
 	<script src="gen_validatorv4.js" type="text/javascript"></script>
 	
-	
+	<style> 
+	 td {text-align: center;
+			border: 1px solid #ddd;
+			padding: 8px;}
+	 th {text-align: center;
+			border: 1px solid #ddd;
+			padding: 8px;}
+			table {align:"right";
+			width: 100%;}
+			
+	 tr:hover {background-color: #ddd;}
+	</style>
 </head>
 <body>
 
@@ -202,19 +213,8 @@
                         </nav>
                     </div>
                 </header>
-                <div class="carousel slide" data-ride="carousel" id="myCarousel">
-                    <ol class="carousel-indicators">
-                        <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-                        <li data-slide-to="1" data-target="#myCarousel"></li>
-                        <li data-slide-to="2" data-target="#myCarousel"></li>
-                    </ol>
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active"><img alt="Image1" src="img/01.jpg"></div>
-                        <div class="item"><img alt="Image2" src="img/02.jpg"></div>
-                        <div class="item"><img alt="Image3" src="img/03.jpg"></div>
-                    </div>
-                    <a class="left carousel-control" data-slide="prev" href="#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-left"></span> <span class="sr-only">Previous</span></a> <a class="right carousel-control" data-slide="next" href= "#myCarousel" role="button"><span aria-hidden="true" class="glyphicon glyphicon-chevron-right"></span> <span class=                   "sr-only">Next</span></a>
-                </div>
+                
+              
                 <div class="mainContent" >
 					<form id = "jobSheetCreate" method = "post" action = "newJobSheet.php" accept-charset='UTF-8' >
 					
@@ -245,7 +245,7 @@
 					
 					
 					
-						<table class="table table-hover">
+						<table >
 						<thead>
 							<tr >
 								<th> Add Job </th>							
@@ -270,7 +270,7 @@
 							{
 					//	echo "<form action=deleteBooking.php method=post>";
 						echo "<tr>";
-						echo		'<td> <input type = "checkbox" name = "selectedJob[]" value='.$row['booking_ID'].'></td>';						
+						echo		'<td> <input type = "checkbox" name = "selectedJob[]" value='.$row['booking_ID'].' style="text-align:center; vertical-align: middle;"></td>';						
 						echo		"<td>{$row['booking_ID']}</td>";
 						echo		"<td>{$row['booking_statusID']}</td>";
 						echo		"<td>{$row['business_name']}</td>";
@@ -294,14 +294,14 @@
 						</tbody>
 					</table>
 					<br/>
-					<input type = "submit" name ="createJob" value ="Create Job Sheet" />
+					<input type = "submit" name ="createJob" value ="Create Job Sheet" class="btn btn-primary"/>
 					</form>
 						
 					<br/>
 					<br/>
 					
-					<form action = "booking.php">
-					<input type = "submit" name ="view" value ="Return to Booking" />
+					<form action = "jobSheet.php">
+					<input type = "submit" name ="view" value ="Return to Job Sheets" class="btn btn-primary"/>
 					</form>
 						
                 </div>

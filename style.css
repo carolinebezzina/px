@@ -193,7 +193,7 @@ label {
 input {
     vertical-align: top;
 }
-input, select {
+input[type=text], select {
 	width: 200px !important;
 	box-sizing: border-box !important;
 }

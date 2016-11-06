@@ -253,6 +253,9 @@
              
                 <div class="mainContent">
 					<h1>Edit User</h1>
+					<?php
+					 queryErr($msg);
+					?>
 					<form name = "fillform" id="fillform" method="POST" action="includes\editUserFormSQL.php">
 					<ul class="users">
 							<li>
@@ -336,14 +339,14 @@
 										
 										<select class="form-control" name="State-req" id="State-req">										
                                             <option name="selectreq" value="selectreq" >-------------Select-------------</option>	
-											<option name="act" value="Australian Capital Territory" <?php echo $ACT; ?> >Australian Capital Territory</option>   
-											<option name="nsw" value="New South Wales"<?php echo $NSW; ?>>New South Wales</option>    
-											<option name="nt" value="Northern Territory" <?php echo $NT; ?>>Northern Territory</option>
-                                            <option name="qld" value="Queensland" <?php echo $QLD; ?>>Queensland</option>              
-											<option name="sa" value="South Australia" <?php echo $SA; ?>>South Australia</option>    
-											<option name="tas" value="Tasmania" <?php echo $TAS; ?>>Tasmania</option>                
-											<option name="vic" value="Victoria" <?php echo $VIC; ?>>Victoria</option>                 
-											<option name="wa" value="Western Australia" <?php echo $WA; ?>>Western Australia</option>
+											<option name="act" value="Australian Capital Territory" <?php echo $ACT; ?> >ACT</option>   
+											<option name="nsw" value="New South Wales"<?php echo $NSW; ?>>NSW</option>    
+											<option name="nt" value="Northern Territory" <?php echo $NT; ?>>NT</option>
+                                            <option name="qld" value="Queensland" <?php echo $QLD; ?>>QLD</option>              
+											<option name="sa" value="South Australia" <?php echo $SA; ?>>SA</option>    
+											<option name="tas" value="Tasmania" <?php echo $TAS; ?>>TAS</option>                
+											<option name="vic" value="Victoria" <?php echo $VIC; ?>>VIC</option>                 
+											<option name="wa" value="Western Australia" <?php echo $WA; ?>>WA</option>
                                 		</select>
                                 		<label for="State-req">State</label> 
                                 	</div>
@@ -418,7 +421,8 @@
 										<button type="button" id="cancelEdit" class="hidden btn btn-primary" type="reset" onclick="window.location.reload()">Cancel Edit</button>									
 									</div>
 									<div class="right-column buttons">
-										<button type ="submit" id="submit" class="hidden btn btn-primary" name ="submit" size = "6">Submit</button>
+										<!--<input type="submit" id="submit" class="hidden btn btn-primary" name ="submit" value ="Submit"/>-->
+										<button type="submit" id="submit" class="hidden btn btn-primary" name ="submit" value ="Submit" size = "6">Submit</button>
 									</div>
 									<button type ="submit" id="delete" class="btn btn-danger" class="hidden" name="delete">DELETE USER</button>
 								</div>

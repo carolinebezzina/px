@@ -178,7 +178,7 @@
                             <li>Message: <span class="mandatory">*</span></li>
                             <li><textarea  class="form-control" rows="4" cols="40" name="Message-req-alphachar" id="Message-req-alphachar"  value="<?php if(isset($_POST['Message-req-alphachar'])) echo htmlentities($_POST['Message-req-alphachar']);?>"></textarea></li>
                             <li><span class="mandatory size12">* indicates mandatory field.</span></li>
-                            <li><button type="button" class="btn btn-primary" id="submit" name="submit">Submit</button></li>
+                            <li><button type="submit" class="btn btn-primary" id="submit" name="submit" value="Submit">Submit</button></li>
                         </ul>
                     </form>
                     <?php 

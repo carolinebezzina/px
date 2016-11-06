@@ -344,7 +344,7 @@ session_start();
 										<button type="reset" class="btn btn-primary">Reset</button>
 									</div>
 									<div class="right-column buttons">									
-										<button class="btn btn-primary" type ="submit" name ="submit">Submit</button>
+										<button class="btn btn-primary" type ="submit" name ="submit" value="submit">Submit</button>
 									</div>
 								</div>
 								

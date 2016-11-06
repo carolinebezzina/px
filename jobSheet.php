@@ -26,7 +26,9 @@
 	$userID = "{$userValue['user_ID']}";
 	
 
-	
+	if (isset($_GET["page"])) { $page  = $_GET["page"]; } else {$page=1; }; 
+	$resultsPerPage = 20;
+	$startPage = ($page-1) * $resultsPerPage;
 	
 	
 	
@@ -310,6 +312,20 @@
 					if ($_SESSION["admin"] == true ) 
 					{ 
 				
+					//display jobs in pages
+						$sql = "SELECT booking_ID, booking_statusID, business_name, address, suburb, postcode, state, email, contact_name, contact_number, type, quantity,ready_date FROM booking ORDER BY booking_statusID, booking_ID ASC LIMIT $startPage, 20";
+						$result = mysqli_query($conn, $sql);
+
+						/*	if ($conn->query($sql) === TRUE) {
+						echo "You have created a booking";	
+						} else {
+						echo "Error: " . $sql . "<br>" . $conn->error;
+						} */
+
+				
+					
+					
+				
 						echo "Select a staff's email and click the change button to change the job to the selected staff <br/>";
 						$type = "SELECT email from user_details WHERE user_typeID = 1";
 						$Emailrs = mysqli_query($conn, $type);
@@ -345,9 +361,17 @@
 						<tbody>';
 						
 				
-							$jobStaff = "SELECT job_sheet_job_number, user_ID FROM job_drivers";
+							$jobStaff = "SELECT job_sheet_job_number, user_ID FROM job_drivers ORDER BY job_sheet_job_number DESC  LIMIT $startPage, 20";
 							$jobStaffRes = mysqli_query($conn, $jobStaff);
 
+							
+							$jobTotal = "SELECT COUNT(job_sheet_job_number) AS totalJobs FROM job_drivers";
+							$totalResult = $conn->query($jobTotal);
+							$jobRows = mysqli_fetch_assoc($totalResult);
+							$totalPages = ceil($jobRows["totalJobs"] / $resultsPerPage); // calculate total pages with results
+	
+	
+							
 
 							if ($jobStaffRes->num_rows > 0)
 							{
@@ -375,6 +399,15 @@
 
 					echo "</tbody>
 					</table>";
+					
+						echo "Pages: ";
+						for ($i=1; $i<=$totalPages; $i++) {
+					// print links for all pages
+						echo "<a href=jobSheet.php?page=".$i." class = 'btn btn-primary'";
+							if ($i==$page)  echo "class='curPage'";
+						echo ">".$i."</a>"; 
+						}
+					
 					
 					echo "<br/>";
 					echo "<br/>";
